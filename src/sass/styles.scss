@@ -9,3 +9,65 @@
   '~bootstrap/scss/print',
   '~bootstrap/scss/reboot',
   '~bootstrap/scss/type';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 12px;
+}
+
+a {
+  color: $brand-color;
+}
+
+h1 {font-size: 3.157em};
+h2 {font-size: 2.369em};
+h3 {font-size: 1.777em};
+h4 {font-size: 1.333em};
+
+// White links against a dark background
+.navbar-dark {
+  .navbar-brand {
+    color: $navbar-dark-active-color;
+
+    @include hover-focus {
+      color: $navbar-dark-active-color;
+    }
+  }
+
+  .navbar-nav {
+    .nav-link {
+      color: $navbar-dark-color;
+
+      @include hover-focus {
+        color: $navbar-dark-hover-color;
+      }
+
+      &.disabled {
+        color: $navbar-dark-disabled-color;
+      }
+    }
+
+    .show > .nav-link,
+    .active > .nav-link,
+    .nav-link.show,
+    .nav-link.active {
+      color: $navbar-dark-active-color;
+    }
+  }
+
+  .navbar-toggler {
+    color: $navbar-dark-color;
+    border-color: $navbar-dark-toggler-border-color;
+  }
+
+  .navbar-toggler-icon {
+    background-image: $navbar-dark-toggler-icon-bg;
+  }
+
+  .navbar-text {
+    color: $navbar-dark-color;
+  }
+}
