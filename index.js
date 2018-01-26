@@ -6,6 +6,7 @@ const path = require('path');
 const router = express.Router(); // Creates a new router object.
 const targets = require('./routes/targets')(router);
 const bodyParser = require('body-parser'); // Allows us to parse body input from user on back-end
+const cors = require('cors');
 
 // Using mongoose to connect to the config file, and using uri path
 mongoose.connect(config.uri, (err) => {
@@ -15,6 +16,9 @@ mongoose.connect(config.uri, (err) => {
     console.log('Connected to database:', config.db);
   }
 });
+
+// allow cross-origin requests between development server and node server
+app.use(cors());
 
 //parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false}))
