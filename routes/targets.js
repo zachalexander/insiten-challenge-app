@@ -16,17 +16,22 @@ module.exports = (router) => {
           if(!req.body.location){
           res.json({success: false, message: 'Company location is required.'});
           } else {
-              const newTarget = new Targets ({
-                status: req.body.status,
-                companyName: req.body.companyName,
-                location: req.body.location
-              });
-              newTarget.save((err) => {
-                if(err) {
-                  res.json({success: false, message: err})
+              if(!req.body.keyContact1){
+                res.json({success: false, message: 'At least one contact is required.'});
               } else {
-                res.json({success: true, message: 'Company name and location have been saved!'});
-              }
+                  const newTarget = new Targets ({
+                    status: req.body.status,
+                    companyName: req.body.companyName,
+                    location: req.body.location,
+                    keyContact1: req.body.keyContact1,
+                    keyContact2: req.body.keyContact2
+                  });
+                newTarget.save((err) => {
+                  if(err) {
+                    res.json({success: false, message: err})
+                } else {
+                  res.json({success: true, message: 'Company name and location have been saved!'});
+                }
             });
           }
         }

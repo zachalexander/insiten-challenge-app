@@ -12,6 +12,12 @@ const targetSchema = mongoose.Schema({
   },
   location: {
     type: String
+  },
+  keyContact1: {
+    type: String
+  },
+  keyContact2: {
+    type: String
   }
 });
 

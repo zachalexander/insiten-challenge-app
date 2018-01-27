@@ -12,6 +12,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class NewtargetComponent implements OnInit {
   companyName: String;
   location: String;
+  keyContact1: String;
+  keyContact2: String;
+  keyContact3: String;
   form: FormGroup;
   statusArray = ['Researching', 'Pending', 'Approved', 'Declined'];
   buttonChange = true;
@@ -19,6 +22,12 @@ export class NewtargetComponent implements OnInit {
   buttonChangePending = false;
   buttonChangeDeclined = false;
   buttonChangeResearching = false;
+  moreContacts1 = false;
+  clickContacts1 = true;
+  moreContacts2 = false;
+  clickContacts2 = false;
+  lessContacts1 = false;
+  lessContacts2 = false;
   message;
   messageClass;
   statusUpdate;
@@ -42,16 +51,24 @@ export class NewtargetComponent implements OnInit {
          Validators.minLength(2),
          Validators.maxLength(30)
        ])],
+       keyContact1: ['', Validators.compose([
+         Validators.required,
+         Validators.minLength(2),
+         Validators.maxLength(30)
+       ])],
+       keyContact2: ['', Validators.compose([
+         Validators.minLength(2),
+         Validators.maxLength(30)
+       ])],
+       keyContact3: ['', Validators.compose([
+         Validators.minLength(2),
+         Validators.maxLength(30)
+       ])],
      })
    }
 
    statusSelect(x) {
-     console.log(x);
-
      this.statusUpdate = x;
-
-     console.log(this.statusUpdate);
-
      if (x == "Approved") {
        this.buttonChange = false;
        this.buttonChangePending = false;
@@ -82,13 +99,29 @@ export class NewtargetComponent implements OnInit {
      }
    }
 
+   addContact1() {
+     this.moreContacts1 = true;
+     this.clickContacts1 = false;
+     this.lessContacts1 = true;
+     this.clickContacts2 = true;
+   }
+
+   removeContact1() {
+     this.moreContacts1 = false;
+     this.clickContacts1 = true;
+     this.lessContacts1 = false;
+   }
+
    onTargetSubmit() {
      console.log(this.statusUpdate);
 
      const target = {
        status: this.statusUpdate,
        companyName: this.companyName,
-       location: this.location
+       location: this.location,
+       keyContact1: this.keyContact1,
+       keyContact2: this.keyContact2,
+       keyContact3: this.keyContact3
      }
      // Submit Post
      this.targetService.submitTarget(target).subscribe(data => {

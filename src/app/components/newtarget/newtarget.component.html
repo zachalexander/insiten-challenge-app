@@ -20,7 +20,7 @@
         <button *ngIf="buttonChangePending" class="btn btn-warning" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         Pending
         </button>
-        <button *ngIf="buttonChangeResearching" class="btn btn-secondary" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <button *ngIf="buttonChangeResearching" class="btn btn-info" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         Researching
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -47,6 +47,29 @@
               <li *ngIf="form.controls.location.errors?.minlength || form.controls.location.errors?.maxlength">Minimum characters: 2, Maximum characters: 30</li>
             </ul>
           </div>
+
+          <label for="keyContact1">Key Contact #1</label>
+          <div [ngClass]="{'has-error': (form.controls.keyContact1.errors && form.controls.keyContact1.dirty) , 'has-success': (!form.controls.keyContact1.errors)}">
+            <input type="text" [(ngModel)]="keyContact1" name="keyContact1" formControlName="keyContact1" autocomplete="off" class="form-control">
+            <ul class="help-block">
+              <li *ngIf="form.controls.keyContact1.errors?.required && form.controls.keyContact1.dirty">This field is required.</li>
+              <li *ngIf="form.controls.keyContact1.errors?.minlength || form.controls.keyContact1.errors?.maxlength">Minimum characters: 2, Maximum characters: 45</li>
+            </ul>
+          </div>
+
+          <h5 *ngIf="clickContacts1"><a (click)="addContact1()"> Add Another Contact </a> </h5>
+          <h5 *ngIf="lessContacts1"><a (click)="removeContact1()"> Do Not Add Another Contact </a> </h5>
+
+          <label *ngIf="moreContacts1" for="keyContact2">Key Contact #2</label>
+          <div [ngClass]="{'has-error': (form.controls.keyContact2.errors && form.controls.keyContact2.dirty)}">
+            <input *ngIf="moreContacts1" type="text" [(ngModel)]="keyContact2" name="keyContact2" formControlName="keyContact2" autocomplete="off" class="form-control">
+            <ul class="help-block">
+              <li *ngIf="form.controls.keyContact2.errors?.required && form.controls.keyContact2.dirty">This field is required.</li>
+              <li *ngIf="form.controls.keyContact2.errors?.minlength || form.controls.keyContact2.errors?.maxlength">Minimum characters: 2, Maximum characters: 45</li>
+            </ul>
+          </div>
+
+
           <input [disabled]="!form.valid" type="submit" class="btn btn-primary" value="Submit">
       </form>
 
