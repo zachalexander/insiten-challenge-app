@@ -5,17 +5,29 @@ import {HttpModule} from '@angular/http';
 import { AppComponent } from './app.component';
 import {RouterModule, Routes} from '@angular/router';
 
+import { NewtargetComponent } from './components/newtarget/newtarget.component';
+import { HomeComponent } from './components/home/home.component';
 
 import {TargetService} from './services/target.service';
 
+
+const appRoutes: Routes = [
+  {path:'', component: HomeComponent}
+  {path:'newtarget', component: NewtargetComponent}
+
+]
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NewtargetComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes),
   ],
   exports: [],
   providers: [TargetService],
