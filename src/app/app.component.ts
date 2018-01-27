@@ -12,8 +12,15 @@ export class AppComponent{
   companyName: String;
   location: String;
   form: FormGroup;
+  statusArray = ['Researching', 'Pending', 'Approved', 'Declined'];
+  buttonChange = true;
+  buttonChangeApproved = false;
+  buttonChangePending = false;
+  buttonChangeDeclined = false;
+  buttonChangeResearching = false;
   message;
   messageClass;
+  statusUpdate;
 
   constructor(
     private targetService: TargetService,
@@ -26,7 +33,7 @@ export class AppComponent{
     this.form = this.formBuilder.group({
       companyName: ['', Validators.compose([
         Validators.required,
-        Validators.minLength(5),
+        Validators.minLength(2),
         Validators.maxLength(45)
       ])],
       location: ['', Validators.compose([
@@ -37,24 +44,66 @@ export class AppComponent{
     })
   }
 
+  statusSelect(x) {
+    console.log(x);
+
+    this.statusUpdate = x;
+
+    console.log(this.statusUpdate);
+
+    if (x == "Approved") {
+      this.buttonChange = false;
+      this.buttonChangePending = false;
+      this.buttonChangeDeclined = false;
+      this.buttonChangeResearching = false;
+      this.buttonChangeApproved = true;
+    }
+    if (x == "Pending") {
+      this.buttonChange = false;
+      this.buttonChangeApproved = false;
+      this.buttonChangeDeclined = false;
+      this.buttonChangeResearching = false;
+      this.buttonChangePending = true;
+    }
+    if (x == "Declined") {
+      this.buttonChange = false;
+      this.buttonChangeApproved = false;
+      this.buttonChangePending = false;
+      this.buttonChangeResearching = false;
+      this.buttonChangeDeclined = true;
+    }
+    if (x == "Researching") {
+      this.buttonChange = false;
+      this.buttonChangeApproved = false;
+      this.buttonChangePending = false;
+      this.buttonChangeDeclined = false;
+      this.buttonChangeResearching = true;
+    }
+  }
+
   onTargetSubmit() {
+    console.log(this.statusUpdate);
+
     const target = {
+      status: this.statusUpdate,
       companyName: this.companyName,
       location: this.location
     }
-    console.log(target);
     // Submit Post
     this.targetService.submitTarget(target).subscribe(data => {
       if(!data.success){
         this.messageClass = 'alert alert-danger';
         this.message = data.message;
-        setTimeout(function () {
-          window.location.reload();
-        }, 1000);
       } else {
         this.messageClass = 'alert alert-success';
         this.message = data.message;
+        setTimeout(function () {
+          window.location.reload();
+        }, 1500);
       }
     });
   }
+
+
+
 }

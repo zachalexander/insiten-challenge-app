@@ -5,6 +5,7 @@ import {HttpModule} from '@angular/http';
 import { AppComponent } from './app.component';
 import {RouterModule, Routes} from '@angular/router';
 
+
 import {TargetService} from './services/target.service';
 
 @NgModule({
@@ -16,6 +17,7 @@ import {TargetService} from './services/target.service';
     ReactiveFormsModule,
     HttpModule
   ],
+  exports: [],
   providers: [TargetService],
   bootstrap: [AppComponent]
 })

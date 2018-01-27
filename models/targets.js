@@ -4,6 +4,9 @@ const config = require('../config/database');
 
 //Target Schema
 const targetSchema = mongoose.Schema({
+  status: {
+    type: String
+  },
   companyName: {
     type: String
   },
