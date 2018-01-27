@@ -21,7 +21,7 @@ module.exports = (router) => {
               if(err) {
                 res.json({success: false, message: err})
             } else {
-              res.json({success: true, message: 'Company Name saved!'});
+              res.json({success: true, message: 'Company name and location have been saved!'});
             }
           });
         }
