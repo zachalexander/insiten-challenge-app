@@ -7,21 +7,24 @@ import {RouterModule, Routes} from '@angular/router';
 import { AppComponent } from './app.component';
 import { NewtargetComponent } from './components/newtarget/newtarget.component';
 import { HomeComponent } from './components/home/home.component';
+import { EditComponent } from './components/edit/edit.component';
 
 import {TargetService} from './services/target.service';
 
 
+
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
-  {path:'newtarget', component: NewtargetComponent}
-
+  {path:'newtarget', component: NewtargetComponent},
+  {path:'edit/:id', component: EditComponent}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     NewtargetComponent,
-    HomeComponent
+    HomeComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

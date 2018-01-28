@@ -13,10 +13,10 @@ export class HomeComponent implements OnInit {
     private targetService: TargetService
   ) { }
 
+  // Retrieve all targets from the database
   getAllTargets() {
     this.targetService.getAllTargets().subscribe(data => {
       this.targetPosts = data.targets;
-      console.log(this.targetPosts);
     });
   }
 

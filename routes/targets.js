@@ -25,12 +25,8 @@ module.exports = (router) => {
                       status: req.body.status,
                       companyName: req.body.companyName,
                       location: req.body.location,
-                      keyContacts: [
-                        {
-                          keyContact1: req.body.keyContact1,
-                          keyContact2: req.body.keyContact2
-                        }
-                      ],
+                      keyContact1: req.body.keyContact1,
+                      keyContact2: req.body.keyContact2,
                       financialPerformance: req.body.financialPerformance
                     });
                   newTarget.save((err) => {
@@ -63,6 +59,55 @@ module.exports = (router) => {
     }).sort({'_id': -1});
   });
 // End of getting all targets in database
+
+
+router.get('/singleTarget/:id', (req, res) => {
+  if (!req.params.id) {
+    res.json({success: false, message: 'No target ID was provided.'});
+  } else {
+    Targets.findOne({ _id: req.params.id }, (err, targets) => {
+      if (err) {
+          res.json({success: false, message: 'Not a valid target ID.'});
+      } else {
+        if (!targets) {
+          res.json({success: false, message: 'Target not found.'});
+        } else {
+          res.json({ success: true, targets: targets});
+        }
+      }
+    });
+  }
+});
+
+router.put('/updateTarget', (req, res) => {
+  if (!req.body._id) {
+    res.json({success: false, msg: 'No target ID provided.'});
+  } else {
+    Targets.findOne({_id: req.body._id}, (err, target) => {
+      if (err) {
+        res.json({success: false, msg: 'Not a valid target ID.'});
+      } else {
+        if (!target) {
+          res.json({success: false, msg: 'Target ID was not found.'});
+        } else {
+            target.status = req.body.status;
+            target.companyName = req.body.companyName;
+            target.location = req.body.location;
+            target.keyContact1 = req.body.keyContact1;
+            target.keyContact2 = req.body.keyContact2;
+            target.financialPerformance = req.body.financialPerformance;
+            target.save((err) => {
+              if (err) {
+                res.json({success: false, message: 'Sorry, we could not save your edits.'});
+              } else {
+                res.json({success: true, message: 'Your target has been updated!'});
+              }
+          });
+        }
+      }
+    });
+  }
+});
 
   return router;
 }

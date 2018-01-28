@@ -118,8 +118,6 @@ export class NewtargetComponent implements OnInit {
    }
 
    onTargetSubmit() {
-     console.log(this.statusUpdate);
-
      const target = {
        status: this.statusUpdate,
        companyName: this.companyName,

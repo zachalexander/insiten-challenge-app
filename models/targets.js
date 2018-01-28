@@ -13,12 +13,12 @@ const targetSchema = mongoose.Schema({
   location: {
     type: String
   },
-  keyContacts: [
-    {
-      keyContact1: {type: String},
-      keyContact2: {type: String}
-    }
-  ],
+  keyContact1: {
+    type: String
+  },
+  keyContact2: {
+    type: String
+  },
   financialPerformance: {
     type: String
   }
