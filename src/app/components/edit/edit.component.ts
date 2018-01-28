@@ -30,6 +30,7 @@ export class EditComponent implements OnInit {
   messageClass;
   statusUpdate;
   loadEditPage = true;
+  status;
 
   constructor(
     private location: Location,
@@ -41,99 +42,97 @@ export class EditComponent implements OnInit {
   this.createForm();
   }
 
-  createForm(){
-    this.form = this.formBuilder.group({
-      companyName: ['', Validators.compose([
-        Validators.required,
-        Validators.minLength(2),
-        Validators.maxLength(45)
-      ])],
-      location: ['', Validators.compose([
-        Validators.required,
-        Validators.minLength(2),
-        Validators.maxLength(30)
-      ])],
-      keyContact1: ['', Validators.compose([
-        Validators.required,
-        Validators.minLength(2),
-        Validators.maxLength(30)
-      ])],
-      keyContact2: ['', Validators.compose([
-        Validators.minLength(2),
-        Validators.maxLength(30)
-      ])],
-      financialPerformance: ['', Validators.compose([
-        Validators.required,
-        Validators.minLength(2),
-        Validators.maxLength(70)
-      ])],
-    })
-  }
+    createForm(){
+      this.form = this.formBuilder.group({
+        companyName: ['', Validators.compose([
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(45)
+        ])],
+        location: ['', Validators.compose([
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(30)
+        ])],
+        keyContact1: ['', Validators.compose([
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(30)
+        ])],
+        keyContact2: ['', Validators.compose([
+          Validators.minLength(2),
+          Validators.maxLength(30)
+        ])],
+        financialPerformance: ['', Validators.compose([
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(70)
+        ])],
+      })
+    }
 
-  statusSelectUpdate(x) {
-    this.status = x;
-    console.log(this.status);
-    if (x == "Approved") {
-      this.buttonChange = false;
-      this.buttonChangePending = false;
-      this.buttonChangeDeclined = false;
-      this.buttonChangeResearching = false;
-      this.buttonChangeApproved = true;
-    }
-    if (x == "Pending") {
-      this.buttonChange = false;
-      this.buttonChangeApproved = false;
-      this.buttonChangeDeclined = false;
-      this.buttonChangeResearching = false;
-      this.buttonChangePending = true;
-    }
-    if (x == "Declined") {
-      this.buttonChange = false;
-      this.buttonChangeApproved = false;
-      this.buttonChangePending = false;
-      this.buttonChangeResearching = false;
-      this.buttonChangeDeclined = true;
-    }
-    if (x == "Researching") {
-      this.buttonChange = false;
-      this.buttonChangeApproved = false;
-      this.buttonChangePending = false;
-      this.buttonChangeDeclined = false;
-      this.buttonChangeResearching = true;
-    }
-  }
-
-  updateTargetSubmit() {
-    this.target.status = this.status;
-    this.targetService.editTarget(this.target).subscribe(data => {
-      if (!data.success) {
-        console.log('this did not work');
-      } else {
-        setTimeout(() => {
-          this.router.navigate(['']);
-        }, 2000);
+    statusSelectUpdate(x) {
+      this.status = x;
+      console.log(this.status);
+      if (x == "Approved") {
+        this.buttonChange = false;
+        this.buttonChangePending = false;
+        this.buttonChangeDeclined = false;
+        this.buttonChangeResearching = false;
+        this.buttonChangeApproved = true;
       }
+      if (x == "Pending") {
+        this.buttonChange = false;
+        this.buttonChangeApproved = false;
+        this.buttonChangeDeclined = false;
+        this.buttonChangeResearching = false;
+        this.buttonChangePending = true;
+      }
+      if (x == "Declined") {
+        this.buttonChange = false;
+        this.buttonChangeApproved = false;
+        this.buttonChangePending = false;
+        this.buttonChangeResearching = false;
+        this.buttonChangeDeclined = true;
+      }
+      if (x == "Researching") {
+        this.buttonChange = false;
+        this.buttonChangeApproved = false;
+        this.buttonChangePending = false;
+        this.buttonChangeDeclined = false;
+        this.buttonChangeResearching = true;
+      }
+    }
+
+    updateTargetSubmit() {
+      this.target.status = this.status;
+      this.targetService.editTarget(this.target).subscribe(data => {
+        if (!data.success) {
+          console.log('this did not work');
+        } else {
+          setTimeout(() => {
+            this.router.navigate(['']);
+          }, 2000);
+        }
+      });
+    }
+
+    backButton() {
+      this.location.back();
+    }
+
+    ngOnInit() {
+      this.currentUrl = this.activatedRoute.snapshot.params;
+      this.targetService.getSingleTarget(this.currentUrl.id).subscribe(data => {
+        if (!data.success) {
+          console.log('this did not work');
+          this.loadEditPage = false;
+        } else {
+          this.loadEditPage = true;
+          this.target = data.targets;
+          const x = this.target.status;
+          this.statusSelectUpdate(x);
+        }
     });
   }
-
-  backButton() {
-    this.location.back();
-  }
-
-  ngOnInit() {
-    this.currentUrl = this.activatedRoute.snapshot.params;
-    this.targetService.getSingleTarget(this.currentUrl.id).subscribe(data => {
-      if (!data.success) {
-        console.log('this did not work');
-        this.loadEditPage = false;
-      } else {
-        this.loadEditPage = true;
-        this.target = data.targets;
-        const x = this.target.status;
-        console.log(x);
-        this.statusSelectUpdate(x);
-
-    });
-  }
-
 }
