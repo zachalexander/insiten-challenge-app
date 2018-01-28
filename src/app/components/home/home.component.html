@@ -4,6 +4,10 @@
   <a [routerLink]="['/newtarget/']"><button class = "btn btn-success">Create New Target</button></a>
 
   <h3>List of Potential Targets</h3>
+  <div *ngFor="let targets of targetPosts" class = "col-md-6">
+    <p>{{targets.companyName}}</p>
+    <p>{{targets.location}}</p>
+  </div>
 
   <h3>Full Look at Targets</h3>
 

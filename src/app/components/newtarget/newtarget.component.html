@@ -2,10 +2,14 @@
 <div class = "container">
     <div class = "col-md-5">
       <h4 class="page-header">Create a New Target</h4>
+
+      <!-- Shows validation messages -->
       <div class = "col-md-12 row show-hide-message">
         <div [ngClass] = "messageClass">{{ message }}</div>
       </div>
+      <!-- End of validation messages -->
 
+      <!-- Status of Acquisition Button -->
       <label for="companyName">Status of Acquisition</label>
       <div class="dropdown">
         <button *ngIf="buttonChange" class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -27,10 +31,13 @@
           <li><a *ngFor="let x of statusArray" (click)="statusSelect(x)">{{x}}</a></li>
         </ul>
       </div>
+      <!-- End of Button -->
 
       <hr>
 
+      <!-- Beginning of Form -->
       <form [formGroup]="form" (submit)="onTargetSubmit()">
+        <!-- Input Fields Start -->
           <label for="companyName">Company Name</label>
           <div [ngClass]="{'has-error': (form.controls.companyName.errors && form.controls.companyName.dirty) , 'has-success': (!form.controls.companyName.errors)}">
             <input type="text" [(ngModel)]="companyName" name="companyName" formControlName="companyName" autocomplete="off" class="form-control">
@@ -69,8 +76,20 @@
             </ul>
           </div>
 
+          <label for="financialPerformance">Financial Performance</label><br />
+          <small>Please enter a quick note about the prospect's recent financial performance.</small>
+          <div [ngClass]="{'has-error': (form.controls.financialPerformance.errors && form.controls.financialPerformance.dirty) , 'has-success': (!form.controls.financialPerformance.errors)}">
+            <input type="text" [(ngModel)]="financialPerformance" name="financialPerformance" formControlName="financialPerformance" autocomplete="off" class="form-control">
+            <ul class="help-block">
+              <li *ngIf="form.controls.financialPerformance.errors?.required && form.controls.financialPerformance.dirty">This field is required.</li>
+              <li *ngIf="form.controls.financialPerformance.errors?.minlength || form.controls.financialPerformance.errors?.maxlength">Minimum characters: 2, Maximum characters: 70</li>
+            </ul>
+          </div>
 
+          <!-- Input Fields End -->
+
+          <!-- Submit Button -->
           <input [disabled]="!form.valid" type="submit" class="btn btn-primary" value="Submit">
       </form>
-
+      <!-- End of Form -->
 </div>

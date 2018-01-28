@@ -16,4 +16,11 @@ export class TargetService {
     return this.http.post('http://localhost:8080/targets/newTarget', target, {headers: headers})
       .map(res => res.json());
   }
+
+  getAllTargets(){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.get('http://localhost:8080/targets/allTargets', {headers: headers})
+      .map(res => res.json());
+  }
 }

@@ -14,7 +14,7 @@ export class NewtargetComponent implements OnInit {
   location: String;
   keyContact1: String;
   keyContact2: String;
-  keyContact3: String;
+  financialPerformance: String;
   form: FormGroup;
   statusArray = ['Researching', 'Pending', 'Approved', 'Declined'];
   buttonChange = true;
@@ -63,6 +63,11 @@ export class NewtargetComponent implements OnInit {
        keyContact3: ['', Validators.compose([
          Validators.minLength(2),
          Validators.maxLength(30)
+       ])],
+       financialPerformance: ['', Validators.compose([
+         Validators.required,
+         Validators.minLength(2),
+         Validators.maxLength(70)
        ])],
      })
    }
@@ -121,7 +126,7 @@ export class NewtargetComponent implements OnInit {
        location: this.location,
        keyContact1: this.keyContact1,
        keyContact2: this.keyContact2,
-       keyContact3: this.keyContact3
+       financialPerformance: this.financialPerformance
      }
      // Submit Post
      this.targetService.submitTarget(target).subscribe(data => {
