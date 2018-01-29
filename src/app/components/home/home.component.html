@@ -1,16 +1,36 @@
 <div class = "container">
 
-  <h3>Create a New Target Profile for Potential Acquisitions</h3>
-  <a [routerLink]="['/newtarget/']"><button class = "btn btn-success">Create New Target</button></a>
+  <h4 class = "new-target-title">Create a New Target Profile for Potential Acquisitions</h4>
+  <a [routerLink]="['/newtarget/']"><button class = "button-success">Create New Target&nbsp;&nbsp;<i class="fa fa-plus-square-o" aria-hidden="true"></i></button></a>
 
-  <h3>List of Potential Targets</h3>
-  <div *ngFor="let targets of targetPosts">
-    <p>{{targets.companyName}}&nbsp;<a [routerLink]="['/edit/', targets._id]"><button type="button" name="button" class="btn btn-sm btn-info">Edit</button></a>
-    &nbsp;<a [routerLink]="['/delete/', targets._id]"><button type="button" name="button" class="btn btn-sm btn-danger">Delete</button></a></p>
-    <p>{{targets.location}}</p>
-    <p>{{targets.status}}</p>
-  </div>
+  <h4>List of Potential Targets</h4>
+  <table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th class="date">Status</th>
+        <th class="date">Company Name</th>
+        <th class="update">Location</th>
+        <th class="date">Financial Information</th>
+        <th class="date">Actions</th>
+      </tr>
+    </thead>
+      <tbody>
+        <tr *ngFor="let targets of targetPosts">
+          <td class="col-md-1"><button [ngClass]="{
+          'button-declined':targets.status === 'Declined',
+          'button-approved':targets.status === 'Approved',
+          'button-pending':targets.status === 'Pending',
+          'button-edit':targets.status === 'Researching'
+          }">{{ targets.status}}</button></td>
+          <td class="col-md-3">{{ targets.companyName}}</td>
+          <td class="col-md-2">{{ targets.location }}</td>
+          <td class="col-md-3">{{ targets.financialPerformance }}</td>
+          <td class="col-md-3"><a [routerLink]="['/edit/', targets._id]"><button type="button" name="button" class="button-edit">Edit</button></a>
+          &nbsp;<a [routerLink]="['/delete/', targets._id]"><button type="button" name="button" class="button-delete">Delete</button></a></td>
+        </tr>
+      </tbody>
+    </table>
 
-  <h3>Full Look at Targets</h3>
+  <h4>Full Look at Targets</h4>
 
 </div>

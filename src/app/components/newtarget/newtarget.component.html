@@ -12,19 +12,19 @@
       <!-- Status of Acquisition Button -->
       <label for="statusUpdate">Status of Acquisition</label>
       <div class="dropdown">
-        <button *ngIf="buttonChange" class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <button *ngIf="buttonChange" class="button-default" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         Status
         <span class="caret"></span></button>
-        <button *ngIf="buttonChangeApproved" value="Approved" class="btn btn-success" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <button *ngIf="buttonChangeApproved" class="button-approved" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         Approved
         </button>
-        <button *ngIf="buttonChangeDeclined" class="btn btn-danger" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <button *ngIf="buttonChangeDeclined" class="button-declined" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         Declined
         </button>
-        <button *ngIf="buttonChangePending" class="btn btn-warning" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <button *ngIf="buttonChangePending" class="button-pending" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         Pending
         </button>
-        <button *ngIf="buttonChangeResearching" class="btn btn-info" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <button *ngIf="buttonChangeResearching" class="button-edit" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         Researching
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -64,8 +64,8 @@
             </ul>
           </div>
 
-          <h5 *ngIf="clickContacts1"><a (click)="addContact1()"> Add Another Contact </a> </h5>
-          <h5 *ngIf="lessContacts1"><a (click)="removeContact1()"> Do Not Add Another Contact </a> </h5>
+          <a *ngIf="clickContacts1" class="add-contact" (click)="addContact1()"> Add Another Contact </a>
+          <a *ngIf="lessContacts1" class="add-contact" (click)="removeContact1()"> Do Not Add Another Contact </a><br/>
 
           <label *ngIf="moreContacts1" for="keyContact2">Key Contact #2</label>
           <div [ngClass]="{'has-error': (form.controls.keyContact2.errors && form.controls.keyContact2.dirty)}">
@@ -89,7 +89,7 @@
           <!-- Input Fields End -->
 
           <!-- Submit Button -->
-          <input [disabled]="!form.valid" type="submit" class="btn btn-primary" value="Submit">
+          <input [disabled]="!form.valid" type="submit" class="button-default" value="Submit">
       </form>
       <!-- End of Form -->
 </div>

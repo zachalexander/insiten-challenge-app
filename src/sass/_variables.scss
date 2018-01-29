@@ -1,7 +1,18 @@
 
 // --------fonts-----------//
 $fonts: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-$font-size: 14px;
+$font-size: 10px;
+$font-color: #333;
+$font-button-color: #fff;
 
 // --------colors-----------//
 $brand-color: #3ab0e2;
+$button-success: #79a379;
+$button-approved: #0c700c;
+$button-delete: #cc7a7a;
+$button-declined: #cc2323;
+$button-pending: #dd9354;
+$button-default: #0a72ca;
+$button-edit: $brand-color;
+
+// --------button style-----------//

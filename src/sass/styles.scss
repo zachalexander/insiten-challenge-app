@@ -1,15 +1,99 @@
 @import './variables';
 @import './mixins';
-
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 * {
   box-sizing: border-box;
 }
 
 html {
-  font-size: 12px;
+  font-size: $font-size;
 }
 
-a {
-  color: $brand-color;
+body {
+  font-family: $fonts;
+  font-size: 1.5rem;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  justify-content: center;
+  background-color: #fff;
+  border: 1px solid $font-color;
+  padding: 7px 10px 7px 10px;
+  border-radius: 3px;
+}
+
+input.button-default {
+  justify-content: center;
+  background-color: $button-default;
+  border: 1px solid $font-color;
+  padding: 7px 10px 7px 10px;
+  border-radius: 3px;
+}
+
+i {
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.button-success {
+  background-color: $button-success;
+  color: $font-button-color;
+}
+
+.button-delete {
+  background-color: $button-delete;
+  color: $font-button-color;
+}
+
+.button-edit {
+  background-color: $button-edit;
+  color: $font-button-color;
+}
+
+.button-pending {
+  background-color: $button-pending;
+  color: $font-button-color;
+}
+
+.button-declined {
+  background-color: $button-declined;
+  color: $font-button-color;
+}
+
+.button-approved {
+  background-color: $button-approved;
+  color: $font-button-color;
+}
+
+.button-default {
+  background-color: $button-default;
+  color: $font-button-color;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:focus,
+a:active {
+  color: $font-color;
+  text-decoration: none;
+}
+
+table {
+  text-align: center;
+}
+
+th {
+  text-align: center;
 }
