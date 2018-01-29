@@ -60,7 +60,7 @@ module.exports = (router) => {
   });
 // End of getting all targets in database
 
-
+// Finding a single target entry in the database
 router.get('/singleTarget/:id', (req, res) => {
   if (!req.params.id) {
     res.json({success: false, message: 'No target ID was provided.'});
@@ -78,7 +78,9 @@ router.get('/singleTarget/:id', (req, res) => {
     });
   }
 });
+// End of finding a single target entry in the database
 
+// Updating data in the database for a specific target
 router.put('/updateTarget', (req, res) => {
   if (!req.body._id) {
     res.json({success: false, msg: 'No target ID provided.'});
@@ -108,6 +110,35 @@ router.put('/updateTarget', (req, res) => {
     });
   }
 });
+
+// End of updating data in the database for a specific target
+
+// Find a specific target entry and delete it from database
+router.delete('/deleteTarget/:id', (req, res) => {
+  if (!req.params.id) {
+    res.json({success: false, message: 'No target ID provided.'});
+  } else {
+    Targets.findOne({_id: req.params.id}, (err, targets) => {
+      if (err) {
+        res.json({success: false, message: 'Invalid ID.'});
+      } else {
+        if (!targets) {
+          res.json({success: false, message: 'Target was not found.'});
+        } else {
+          targets.remove((err) => {
+            if (err) {
+              res.json({success: false, message: err});
+            } else {
+              res.json({success: true, message: 'This target was successfully deleted!'});
+            }
+          });
+        }
+      }
+    });
+  }
+});
+
+// End of find a specific target entry and delete it from database
 
   return router;
 }

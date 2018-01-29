@@ -8,15 +8,18 @@ import { AppComponent } from './app.component';
 import { NewtargetComponent } from './components/newtarget/newtarget.component';
 import { HomeComponent } from './components/home/home.component';
 import { EditComponent } from './components/edit/edit.component';
+import { DeleteComponent } from './components/delete/delete.component';
 
 import {TargetService} from './services/target.service';
+
 
 
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
   {path:'newtarget', component: NewtargetComponent},
-  {path:'edit/:id', component: EditComponent}
+  {path:'edit/:id', component: EditComponent},
+  {path:'delete/:id', component: DeleteComponent}
 ]
 
 @NgModule({
@@ -24,7 +27,8 @@ const appRoutes: Routes = [
     AppComponent,
     NewtargetComponent,
     HomeComponent,
-    EditComponent
+    EditComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,

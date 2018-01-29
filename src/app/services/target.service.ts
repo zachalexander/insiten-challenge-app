@@ -38,4 +38,11 @@ export class TargetService {
       .map(res => res.json());
   }
 
+  deleteTarget(id){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.delete('http://localhost:8080/targets/deleteTarget/'+ id, {headers: headers})
+      .map(res => res.json());
+  }
+
 }

@@ -5,7 +5,8 @@
 
   <h3>List of Potential Targets</h3>
   <div *ngFor="let targets of targetPosts">
-    <p>{{targets.companyName}}&nbsp;<a [routerLink]="['/edit/', targets._id]"><button type="button" name="button" class="btn btn-sm btn-info">Edit</button></a></p>
+    <p>{{targets.companyName}}&nbsp;<a [routerLink]="['/edit/', targets._id]"><button type="button" name="button" class="btn btn-sm btn-info">Edit</button></a>
+    &nbsp;<a [routerLink]="['/delete/', targets._id]"><button type="button" name="button" class="btn btn-sm btn-danger">Delete</button></a></p>
     <p>{{targets.location}}</p>
     <p>{{targets.status}}</p>
   </div>

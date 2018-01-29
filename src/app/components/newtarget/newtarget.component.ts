@@ -34,7 +34,8 @@ export class NewtargetComponent implements OnInit {
 
   constructor(
     private targetService: TargetService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router,
   ) {
     this.createForm();
    }
@@ -134,9 +135,9 @@ export class NewtargetComponent implements OnInit {
        } else {
          this.messageClass = 'alert alert-success';
          this.message = data.message;
-         setTimeout(function () {
-           window.location.reload();
-         }, 1500);
+         setTimeout(() => {
+           this.router.navigate(['']);
+         }, 2000);
        }
      });
    }
