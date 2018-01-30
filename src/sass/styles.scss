@@ -9,11 +9,21 @@
 
 html {
   font-size: $font-size;
+  height: 100%;
 }
 
 body {
   font-family: $fonts;
   font-size: 1.5rem;
+  background-color: #f7f7f7;
+  height: 100%;
+}
+
+.container {
+  background-color: #fff;
+  height: 100%;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
 }
 
 ul {
@@ -30,6 +40,21 @@ button {
   border: 1px solid $font-color;
   padding: 7px 10px 7px 10px;
   border-radius: 3px;
+  transition: all 0.3s ease 0s;
+}
+
+button:hover {
+  background: #f7f7f7;
+  color: $font-color;
+}
+
+button.button-small {
+  justify-content: center;
+  border: 1px solid $font-color;
+  padding: 4px 6px 4px 6px;
+  border-radius: 3px;
+  font-size: 0.8em;
+  transition: all 0.3s ease 0s;
 }
 
 input.button-default {
@@ -38,11 +63,13 @@ input.button-default {
   border: 1px solid $font-color;
   padding: 7px 10px 7px 10px;
   border-radius: 3px;
+  transition: all 0.3s ease 0s;
 }
 
-i {
+.fa {
   justify-content: center;
   vertical-align: middle;
+  padding-bottom: 3px;
 }
 
 .button-success {
@@ -71,12 +98,27 @@ i {
 }
 
 .button-approved {
-  background-color: $button-approved;
+  background-color: $button-success;
   color: $font-button-color;
 }
 
 .button-default {
   background-color: $button-default;
+  color: $font-button-color;
+}
+
+.button-reg {
+  background-color: $button-reg;
+  color: $font-color;
+}
+
+.button-new-target {
+  background-color: $button-reg;
+  color: $font-color;
+}
+
+.button-new-target:hover {
+  background: $button-success;
   color: $font-button-color;
 }
 

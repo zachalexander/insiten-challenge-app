@@ -89,7 +89,9 @@
           <!-- Input Fields End -->
 
           <!-- Submit Button -->
-          <input [disabled]="!form.valid" type="submit" class="button-default" value="Submit">
+          <input [disabled]="!form.valid" type="submit" class="button-default" value="Submit"><a [routerLink]="['']">&nbsp;<button class="button-edit" type="button" aria-haspopup="true" aria-expanded="true">
+            Go Back
+            </button></a>
       </form>
       <!-- End of Form -->
 </div>
