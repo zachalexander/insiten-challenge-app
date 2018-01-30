@@ -1,13 +1,11 @@
 
-<div class = "container">
-    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
-    <div class = "col-md-5">
+<div class = "col-sm-4"></div>
+  <div class = "form-container col-sm-4">
+      <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
       <h4 class="page-header">Create a New Target</h4>
 
       <!-- Shows validation messages -->
-      <div class = "col-md-12 row show-hide-message">
         <div [ngClass] = "messageClass">{{ message }}</div>
-      </div>
       <!-- End of validation messages -->
 
       <!-- Status of Acquisition Button -->
@@ -33,9 +31,7 @@
         </ul>
       </div>
       <!-- End of Button -->
-
       <hr>
-
       <!-- Beginning of Form -->
       <form [formGroup]="form" (submit)="onTargetSubmit()">
         <!-- Input Fields Start -->
@@ -55,7 +51,6 @@
               <li *ngIf="form.controls.location.errors?.minlength || form.controls.location.errors?.maxlength">Minimum characters: 2, Maximum characters: 30</li>
             </ul>
           </div>
-
           <label for="keyContact1">Key Contact #1</label>
           <div [ngClass]="{'has-error': (form.controls.keyContact1.errors && form.controls.keyContact1.dirty) , 'has-success': (!form.controls.keyContact1.errors)}">
             <input type="text" [(ngModel)]="keyContact1" name="keyContact1" formControlName="keyContact1" autocomplete="off" class="form-control">
@@ -64,10 +59,8 @@
               <li *ngIf="form.controls.keyContact1.errors?.minlength || form.controls.keyContact1.errors?.maxlength">Minimum characters: 2, Maximum characters: 45</li>
             </ul>
           </div>
-
           <a *ngIf="clickContacts1" class="add-contact" (click)="addContact1()"> Add Another Contact </a>
           <a *ngIf="lessContacts1" class="add-contact" (click)="removeContact1()"> Do Not Add Another Contact </a><br/>
-
           <label *ngIf="moreContacts1" for="keyContact2">Key Contact #2</label>
           <div [ngClass]="{'has-error': (form.controls.keyContact2.errors && form.controls.keyContact2.dirty)}">
             <input *ngIf="moreContacts1" type="text" [(ngModel)]="keyContact2" name="keyContact2" formControlName="keyContact2" autocomplete="off" class="form-control">
@@ -76,7 +69,6 @@
               <li *ngIf="form.controls.keyContact2.errors?.minlength || form.controls.keyContact2.errors?.maxlength">Minimum characters: 2, Maximum characters: 45</li>
             </ul>
           </div>
-
           <label for="financialPerformance">Financial Performance</label><br />
           <small>Please enter a quick note about the prospect's recent financial performance.</small>
           <div [ngClass]="{'has-error': (form.controls.financialPerformance.errors && form.controls.financialPerformance.dirty) , 'has-success': (!form.controls.financialPerformance.errors)}">
@@ -86,13 +78,13 @@
               <li *ngIf="form.controls.financialPerformance.errors?.minlength || form.controls.financialPerformance.errors?.maxlength">Minimum characters: 2, Maximum characters: 70</li>
             </ul>
           </div>
-
           <!-- Input Fields End -->
 
           <!-- Submit Button -->
-          <input [disabled]="!form.valid" type="submit" class="button-default" value="Submit"><a [routerLink]="['']">&nbsp;<button class="button-edit" type="button" aria-haspopup="true" aria-expanded="true">
+          <input type="submit" class="button-default" value="Submit"><a [routerLink]="['']">&nbsp;<button class="button-edit" type="button" aria-haspopup="true" aria-expanded="true">
             Go Back
-            </button></a>
+          </button></a>
       </form>
+    </div>
       <!-- End of Form -->
-</div>
+  <div class = "col-sm-4"></div>

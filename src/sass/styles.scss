@@ -139,3 +139,43 @@ table {
 th {
   text-align: center;
 }
+
+
+@media screen and (max-width: 480px) {
+  .form-container {
+    background-color: #fff;
+    padding-bottom: 40px;
+    padding-top: 20px;
+    margin-top: 30px;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  .form-container {
+    background-color: #fff;
+    padding-bottom: 40px;
+    padding-top: 20px;
+    margin-top: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 959px) {
+  .form-container {
+    background-color: #fff;
+    padding-bottom: 40px;
+    padding-top: 20px;
+    margin-top: 30px;
+    min-width: 500px;
+  }
+}
+
+
+@media screen and (min-width: 959px) {
+  .form-container {
+    background-color: #fff;
+    padding-bottom: 40px;
+    padding-top: 20px;
+    margin-top: 30px;
+    min-width: 500px;
+  }
+}
