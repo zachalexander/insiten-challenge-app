@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 
 export class NewtargetComponent implements OnInit {
+  public loading = false;
   companyName: String;
   location: String;
   keyContact1: String;
@@ -134,9 +135,11 @@ export class NewtargetComponent implements OnInit {
          this.message = data.message;
        } else {
          this.messageClass = 'alert alert-success';
+         this.loading = true;
          this.message = data.message;
          setTimeout(() => {
            this.router.navigate(['']);
+           this.loading = false;
          }, 2000);
        }
      });

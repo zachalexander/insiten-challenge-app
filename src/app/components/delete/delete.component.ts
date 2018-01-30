@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./delete.component.scss']
 })
 export class DeleteComponent implements OnInit {
+  public loading = false;
   target = {
     status: String,
     companyName: String,
@@ -110,9 +111,11 @@ export class DeleteComponent implements OnInit {
       if (!data.success) {
         console.log('this did not work');
       } else {
+        this.loading = true;
         setTimeout(() => {
           this.router.navigate(['']);
-        }, 2000);
+          this.loading = false;
+        }, 3000);
       }
     });
   }

@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
+  public loading = false;
   target = {
     status: String,
     companyName: String,
@@ -110,8 +111,10 @@ export class EditComponent implements OnInit {
         if (!data.success) {
           console.log('this did not work');
         } else {
+          this.loading = true;
           setTimeout(() => {
             this.router.navigate(['']);
+            this.loading = false;
           }, 2000);
         }
       });

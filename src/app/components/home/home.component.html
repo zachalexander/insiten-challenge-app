@@ -1,4 +1,5 @@
 <div class = "container">
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
     <h4 class = "new-target-title">Create a New Target Profile for Potential Acquisitions</h4>
     <a [routerLink]="['/newtarget/']"><button class = "button-new-target">Create New Target&nbsp;<i class="fa fa-angle-double-right" aria-hidden="true"></i></button></a>
   <hr>
@@ -12,7 +13,7 @@
         <th class="update">Location</th>
         <th class="update">Key Contact</th>
         <th class="date">Financial Information</th>
-        <th class="date">Actions</th>
+        <th class="date">Edit/Delete</th>
       </tr>
     </thead>
       <tbody>

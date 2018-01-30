@@ -6,6 +6,7 @@
 </div>
 
 <div *ngIf="loadEditPage" class = "col-md-5">
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
   <h4 class="page-header">Edit Target Information</h4>
 
   <!-- Shows validation messages -->
