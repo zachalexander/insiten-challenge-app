@@ -13,9 +13,6 @@ import { DeleteComponent } from './components/delete/delete.component';
 
 import {TargetService} from './services/target.service';
 
-
-
-
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
   {path:'newtarget', component: NewtargetComponent},
