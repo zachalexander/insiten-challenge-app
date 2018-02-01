@@ -12,20 +12,6 @@ html {
   height: 100%;
 }
 
-body {
-  font-family: $fonts;
-  font-size: 1.5rem;
-  background-color: #f7f7f7;
-  height: 100%;
-}
-
-.container {
-  background-color: #fff;
-  height: 100%;
-  border-right: 1px solid #ccc;
-  border-left: 1px solid #ccc;
-}
-
 ul {
   padding: 0;
 }
@@ -122,6 +108,12 @@ input.button-default {
   color: $font-button-color;
 }
 
+.sorry-message {
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 40px;
+}
+
 a,
 a:link,
 a:visited,
@@ -142,40 +134,91 @@ th {
 
 
 @media screen and (max-width: 480px) {
+  body {
+    font-family: $fonts;
+    font-size: 1.25rem;
+    height: 100%;
+    display: grid;
+  }
+
   .form-container {
     background-color: #fff;
     padding-bottom: 40px;
-    padding-top: 20px;
-    margin-top: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
   }
 }
 
-@media screen and (min-width: 480px) and (max-width: 768px) {
+@media screen and (min-width: 480px) and (max-width: 520px) {
+  body {
+    font-family: $fonts;
+    font-size: 1.25rem;
+    height: 100%;
+    display: grid;
+  }
+
   .form-container {
     background-color: #fff;
     padding-bottom: 40px;
-    padding-top: 20px;
-    margin-top: 30px;
+    padding-right: 20px;
+    padding-left: 20px;
+    max-width: 500px;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 520px) and (max-width: 768px) {
+  body {
+    font-family: $fonts;
+    font-size: 1.5rem;
+    height: 100%;
+    display: grid;
+  }
+  .form-container {
+    background-color: #fff;
+    padding-bottom: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
+    max-width: 500px;
+    margin: auto;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 959px) {
+  body {
+    font-family: $fonts;
+    font-size: 1.5rem;
+    background-color: $background-color;
+    height: 100%;
+    display: grid;
+  }
   .form-container {
     background-color: #fff;
     padding-bottom: 40px;
-    padding-top: 20px;
-    margin-top: 30px;
-    min-width: 500px;
+    padding-right: 20px;
+    padding-left: 20px;
+    max-width: 500px;
+    border: 1px solid $border-color;
+    margin: auto;
   }
 }
 
 @media screen and (min-width: 959px) {
+  body {
+    font-family: $fonts;
+    font-size: 1.5rem;
+    background-color: $background-color;
+    height: 100%;
+    display: grid;
+  }
+
   .form-container {
     background-color: #fff;
     padding-bottom: 40px;
-    padding-top: 20px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    min-width: 500px;
+    padding-right: 20px;
+    padding-left: 20px;
+    max-width: 500px;
+    border: 1px solid $border-color;
+    margin: auto;
   }
 }
