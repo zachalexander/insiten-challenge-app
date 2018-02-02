@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { EditComponent } from './components/edit/edit.component';
 import { DeleteComponent } from './components/delete/delete.component';
 import { SplashComponent } from './components/splash/splash.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 import {TargetService} from './services/target.service';
 
@@ -20,7 +21,8 @@ const appRoutes: Routes = [
   {path:'home', component: HomeComponent},
   {path:'newtarget', component: NewtargetComponent},
   {path:'edit/:id', component: EditComponent},
-  {path:'delete/:id', component: DeleteComponent}
+  {path:'delete/:id', component: DeleteComponent},
+  {path:'profile/:id', component: ProfileComponent}
 ]
 
 @NgModule({
@@ -30,7 +32,8 @@ const appRoutes: Routes = [
     HomeComponent,
     EditComponent,
     DeleteComponent,
-    SplashComponent
+    SplashComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -24,13 +24,13 @@
       </tr>
     </thead>
       <tbody>
-        <tr *ngFor="let targets of targetPosts">
+        <tr [routerLink]="['/profile/', targets._id]" *ngFor="let targets of targetPosts">
           <td class="col-xs-1"><div class="small" [ngClass]="{
           'div-declined':targets.status === 'Declined',
           'div-approved':targets.status === 'Approved',
           'div-pending':targets.status === 'Pending',
           'div-edit':targets.status === 'Researching'
-        }">{{ targets.status}}</div></td>
+          }">{{ targets.status}}</div></td>
           <td class="col-xs-2">{{ targets.companyName}}</td>
           <td class="col-xs-2">{{ targets.location }}</td>
           <td class="col-xs-2">{{ targets.keyContact1 }}</td>
