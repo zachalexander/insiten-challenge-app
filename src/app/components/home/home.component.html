@@ -1,16 +1,16 @@
-<html class = "home-page">
-
-<div class="container-fluid full">
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+<div class = "section-top">
+  <div class = "newTarget-div">
+    <div class = "intro-text-newTarget">
+      <h4 class = "new-target-title">Create a New Target Profile for Potential Acquisitions</h4>
+        <div class = "button-div">
+          <a [routerLink]="['/newtarget/']"><button class = "button-new-target">Create New Target&nbsp;<i class="fa fa-angle-double-right" aria-hidden="true"></i></button></a>
+        </div>
+      </div>
+    </div>
 </div>
-</html>
 
-
-<!-- <div class = "container">
-  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
-    <h4 class = "new-target-title">Create a New Target Profile for Potential Acquisitions</h4>
-    <a [routerLink]="['/newtarget/']"><button class = "button-new-target">Create New Target&nbsp;<i class="fa fa-angle-double-right" aria-hidden="true"></i></button></a>
-  <hr>
-
+  <div class = "section-middle">
   <h4>List of Potential Targets</h4>
   <table class="table table-hover">
     <thead class="thead-dark">
@@ -25,12 +25,12 @@
     </thead>
       <tbody>
         <tr *ngFor="let targets of targetPosts">
-          <td class="col-xs-1"><button class="button-small" [ngClass]="{
-          'button-declined':targets.status === 'Declined',
-          'button-approved':targets.status === 'Approved',
-          'button-pending':targets.status === 'Pending',
-          'button-edit':targets.status === 'Researching'
-          }">{{ targets.status}}</button></td>
+          <td class="col-xs-1"><div class="small" [ngClass]="{
+          'div-declined':targets.status === 'Declined',
+          'div-approved':targets.status === 'Approved',
+          'div-pending':targets.status === 'Pending',
+          'div-edit':targets.status === 'Researching'
+        }">{{ targets.status}}</div></td>
           <td class="col-xs-2">{{ targets.companyName}}</td>
           <td class="col-xs-2">{{ targets.location }}</td>
           <td class="col-xs-2">{{ targets.keyContact1 }}</td>
@@ -49,8 +49,8 @@
         </tr>
       </tbody>
     </table>
+  </div>
 
-  <h4>Full Look at Targets</h4>
-
-
-</div> -->
+<div class = "section-stats">
+  <h4 class = "data-callout">Full Look at Targets</h4>
+</div>

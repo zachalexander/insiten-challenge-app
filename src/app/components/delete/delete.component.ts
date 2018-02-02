@@ -19,19 +19,13 @@ export class DeleteComponent implements OnInit {
     keyContact2: String,
     financialPerformance: String
   }
-  form: FormGroup;
-  buttonChange = true;
-  buttonChangeApproved = false;
-  buttonChangePending = false;
-  buttonChangeDeclined = false;
-  buttonChangeResearching = false;
-  statusArray = ['Researching', 'Pending', 'Approved', 'Declined'];
   currentUrl;
   message;
   messageClass;
   statusUpdate;
   loadEditPage = true;
   status;
+  targetSpecific;
 
   constructor(
     private location: Location,
@@ -39,71 +33,7 @@ export class DeleteComponent implements OnInit {
     private targetService: TargetService,
     private router: Router,
     private formBuilder: FormBuilder
-  ) {
-    this.createForm();
-  }
-
-  createForm(){
-    this.form = this.formBuilder.group({
-      companyName: ['', Validators.compose([
-        Validators.required,
-        Validators.minLength(2),
-        Validators.maxLength(45)
-      ])],
-      location: ['', Validators.compose([
-        Validators.required,
-        Validators.minLength(2),
-        Validators.maxLength(30)
-      ])],
-      keyContact1: ['', Validators.compose([
-        Validators.required,
-        Validators.minLength(2),
-        Validators.maxLength(30)
-      ])],
-      keyContact2: ['', Validators.compose([
-        Validators.minLength(2),
-        Validators.maxLength(30)
-      ])],
-      financialPerformance: ['', Validators.compose([
-        Validators.required,
-        Validators.minLength(2),
-        Validators.maxLength(70)
-      ])],
-    })
-  }
-
-  statusSelectUpdate(x) {
-    this.status = x;
-    console.log(this.status);
-    if (x == "Approved") {
-      this.buttonChange = false;
-      this.buttonChangePending = false;
-      this.buttonChangeDeclined = false;
-      this.buttonChangeResearching = false;
-      this.buttonChangeApproved = true;
-    }
-    if (x == "Pending") {
-      this.buttonChange = false;
-      this.buttonChangeApproved = false;
-      this.buttonChangeDeclined = false;
-      this.buttonChangeResearching = false;
-      this.buttonChangePending = true;
-    }
-    if (x == "Declined") {
-      this.buttonChange = false;
-      this.buttonChangeApproved = false;
-      this.buttonChangePending = false;
-      this.buttonChangeResearching = false;
-      this.buttonChangeDeclined = true;
-    }
-    if (x == "Researching") {
-      this.buttonChange = false;
-      this.buttonChangeApproved = false;
-      this.buttonChangePending = false;
-      this.buttonChangeDeclined = false;
-      this.buttonChangeResearching = true;
-    }
-  }
+  ) { }
 
   deleteTargetFinal() {
     this.target.status = this.status;
@@ -113,12 +43,21 @@ export class DeleteComponent implements OnInit {
       } else {
         this.loading = true;
         setTimeout(() => {
-          this.router.navigate(['']);
+          this.router.navigate(['/home/']);
           this.loading = false;
         }, 3000);
       }
     });
   }
+
+  // Retrieve specific target from the database
+  getSpecificTarget() {
+    this.currentUrl = this.activatedRoute.snapshot.params;
+    this.targetService.getSingleTarget(this.currentUrl.id).subscribe(data => {
+        this.targetSpecific = data.targets;
+    });
+  }
+
 
   ngOnInit() {
     this.currentUrl = this.activatedRoute.snapshot.params;
@@ -129,9 +68,15 @@ export class DeleteComponent implements OnInit {
       } else {
         this.loadEditPage = true;
         this.target = data.targets;
-        const x = this.target.status;
-        this.statusSelectUpdate(x);
+        this.targetSpecific = {
+          companyName: data.targets.companyName,
+          status: data.targets.status,
+          location: data.targets.location,
+          keyContact1: data.targets.keyContact1,
+          keyContact2: data.targets.keyContact2,
+          financialPerformance: data.targets.financialPerformance
       }
+    }
   });
 }
 

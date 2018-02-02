@@ -1,15 +1,15 @@
-<div *ngIf="!loadEditPage" class = "container-wrapper">
+<div *ngIf="!loadEditPage">
   <div class = "form-container">
     <div class = "sorry-message">
       <h5>Sorry, but this target does not exist.</h5>
-      <a [routerLink]="['']"><button  *ngIf="!loadingEditPage" class="button-default" type="button" aria-haspopup="true" aria-expanded="true">
+      <a [routerLink]="['/home/']"><button  *ngIf="!loadingEditPage" class="button-default" type="button" aria-haspopup="true" aria-expanded="true">
       Go Back
       </button></a>
     </div>
   </div>
 </div>
 
-<div *ngIf="loadEditPage" class = "container-wrapper">
+<div *ngIf="loadEditPage">
   <div class = "form-container">
       <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
       <h4 class="page-header">Edit Target Information</h4>
@@ -26,16 +26,16 @@
         <span class="caret"></span></button>
         <button *ngIf="buttonChangeApproved" class="button-approved" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         Approved
-        </button>
+        <span class="caret"></span></button>
         <button *ngIf="buttonChangeDeclined" class="button-declined" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         Declined
-        </button>
+        <span class="caret"></span></button>
         <button *ngIf="buttonChangePending" class="button-pending" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         Pending
-        </button>
+        <span class="caret"></span></button>
         <button *ngIf="buttonChangeResearching" class="button-edit" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         Researching
-        </button>
+        <span class="caret"></span></button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
           <li><a *ngFor="let x of statusArray" (click)="statusSelectUpdate(x)">{{x}}</a></li>
         </ul>
@@ -94,7 +94,7 @@
           <!-- Input Fields End -->
 
           <!-- Submit Button -->
-          <input [disabled]="!form.valid" type="submit" class="button-default" value="Submit Changes"><a [routerLink]="['']">&nbsp;<button class="button-reg" type="button" aria-haspopup="true" aria-expanded="true">
+          <input [disabled]="!form.valid" type="submit" class="button-default" value="Submit Changes"><a [routerLink]="['/home/']">&nbsp;<button class="button-reg" type="button" aria-haspopup="true" aria-expanded="true">
             Go Back
           </button></a>
       </form>

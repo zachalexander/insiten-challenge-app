@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 export class TargetService {
   target: any;
 
-  domain = "";
+  domain = "http://localhost:8080";
 
   constructor(
     private http: Http

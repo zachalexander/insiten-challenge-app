@@ -9,92 +9,42 @@
   </div>
 </div>
 
-<div *ngIf="loadEditPage" class = "container-wrapper">
+<div *ngIf="loadEditPage">
   <div class = "form-container">
     <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
     <h4 class="page-header">Are you sure you want to delete this entry?</h4>
 
-    <!-- Shows validation messages -->
-    <div [ngClass] = "messageClass">{{ message }}</div>
-    <!-- End of validation messages -->
-
-    <!-- Status of Acquisition Button -->
-    <label for="statusChange">Status of Acquisition</label>
-    <div class="dropdown">
-      <button *ngIf="buttonChange" class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      Status
-      <span class="caret"></span></button>
-      <button *ngIf="buttonChangeApproved" class="button-approved" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      Approved
-      </button>
-      <button *ngIf="buttonChangeDeclined" class="button-declined" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      Declined
-      </button>
-      <button *ngIf="buttonChangePending" class="button-pending" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      Pending
-      </button>
-      <button *ngIf="buttonChangeResearching" class="button-edit" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      Researching
-      </button>
-    </div>
-    <!-- End of Button -->
-
+    <button type="button" name="button" class="button-approved" (click)="deleteTargetFinal()">Yes</button>
+    <a routerLink='/home'><button type="button" name="button" class="button-delete">No</button></a>
+    <br>
     <hr>
-
     <!-- Beginning of Form -->
-    <form [formGroup]="form" (submit)="deleteTargetFinal()">
+    <div (submit)="deleteTargetFinal()">
       <!-- Input Fields Start -->
-        <label for="companyName">Company Name</label>
-        <div [ngClass]="{'has-error': (form.controls.companyName.errors && form.controls.companyName.dirty) , 'has-success': (!form.controls.companyName.errors)}">
-          <input type="text" [(ngModel)]="target.companyName" formControlName="companyName" autocomplete="off" class="form-control">
-          <ul class="help-block">
-            <li *ngIf="form.controls.companyName.errors?.required && form.controls.companyName.dirty">This field is required.</li>
-            <li *ngIf="form.controls.companyName.errors?.minlength || form.controls.companyName.errors?.maxlength">Minimum characters: 2, Maximum characters: 45</li>
-          </ul>
-        </div>
-        <label for="location">Location</label>
-        <div [ngClass]="{'has-error': (form.controls.location.errors && form.controls.location.dirty) , 'has-success': (!form.controls.location.errors)}">
-          <input type="text" [(ngModel)]="target.location"  formControlName="location" autocomplete="off" class="form-control">
-          <ul class="help-block">
-            <li *ngIf="form.controls.location.errors?.required && form.controls.location.dirty">This field is required.</li>
-            <li *ngIf="form.controls.location.errors?.minlength || form.controls.location.errors?.maxlength">Minimum characters: 2, Maximum characters: 30</li>
-          </ul>
-        </div>
 
-        <label for="keyContact1">Key Contact #1</label>
-        <div [ngClass]="{'has-error': (form.controls.keyContact1.errors && form.controls.keyContact1.dirty) , 'has-success': (!form.controls.keyContact1.errors)}">
-          <input type="text" [(ngModel)]="target.keyContact1" formControlName="keyContact1" autocomplete="off" class="form-control">
-          <ul class="help-block">
-            <li *ngIf="form.controls.keyContact1.errors?.required && form.controls.keyContact1.dirty">This field is required.</li>
-            <li *ngIf="form.controls.keyContact1.errors?.minlength || form.controls.keyContact1.errors?.maxlength">Minimum characters: 2, Maximum characters: 45</li>
-          </ul>
+      <div class="panel-group">
+        <div class="panel panel-default">
+          <div class="panel-body"><label for="companyName">Company Name:</label>&nbsp;{{targetSpecific.companyName}}</div>
         </div>
-
-        <label for="keyContact2">Key Contact #2</label>
-        <div [ngClass]="{'has-error': (form.controls.keyContact2.errors && form.controls.keyContact2.dirty)}">
-          <input type="text" [(ngModel)]="target.keyContact2" formControlName="keyContact2" autocomplete="off" class="form-control">
-          <ul class="help-block">
-            <li *ngIf="form.controls.keyContact2.errors?.required && form.controls.keyContact2.dirty">This field is required.</li>
-            <li *ngIf="form.controls.keyContact2.errors?.minlength || form.controls.keyContact2.errors?.maxlength">Minimum characters: 2, Maximum characters: 45</li>
-          </ul>
+        <div class="panel panel-default">
+          <div class="panel-body"><label for="companyName">Location:</label>&nbsp;{{targetSpecific.location}}</div>
         </div>
-
-        <label for="financialPerformance">Financial Performance</label><br />
-        <small>Please enter a quick note about the prospect's recent financial performance.</small>
-        <div [ngClass]="{'has-error': (form.controls.financialPerformance.errors && form.controls.financialPerformance.dirty) , 'has-success': (!form.controls.financialPerformance.errors)}">
-          <input type="text" [(ngModel)]="target.financialPerformance" formControlName="financialPerformance" autocomplete="off" class="form-control">
-          <ul class="help-block">
-            <li *ngIf="form.controls.financialPerformance.errors?.required && form.controls.financialPerformance.dirty">This field is required.</li>
-            <li *ngIf="form.controls.financialPerformance.errors?.minlength || form.controls.financialPerformance.errors?.maxlength">Minimum characters: 2, Maximum characters: 70</li>
-          </ul>
+        <div class="panel panel-default">
+          <div class="panel-body"><label for="companyName">Status:</label>&nbsp;{{targetSpecific.status}}</div>
         </div>
-        <!-- Input Fields End -->
-
+        <div class="panel panel-default">
+          <div class="panel-body"><label for="companyName">Key Contact #1:</label>&nbsp;{{targetSpecific.keyContact1}}</div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body"><label for="companyName">Key Contact #2:</label>&nbsp;{{targetSpecific.keyContact2}}</div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body"><label for="companyName">Financial Performance:</label>&nbsp;{{targetSpecific.financialPerformance}}</div>
+        </div>
+      </div>
         <!-- Submit Button -->
-        <input [disabled]="!form.valid" type="submit" class="button-delete" value="Delete Target"><a [routerLink]="['']">&nbsp;<button class="button-reg" type="button" aria-haspopup="true" aria-expanded="true">
-          Go Back
-          </button></a>
-    </form>
+
+    </div>
     <!-- End of Form -->
   </div>
   <!-- End of form container -->
