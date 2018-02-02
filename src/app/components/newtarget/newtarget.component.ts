@@ -138,7 +138,7 @@ export class NewtargetComponent implements OnInit {
          this.loading = true;
          this.message = data.message;
          setTimeout(() => {
-           this.router.navigate(['']);
+           this.router.navigate(['/home/']);
            this.loading = false;
          }, 2000);
        }

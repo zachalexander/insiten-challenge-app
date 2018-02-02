@@ -108,6 +108,21 @@ input.button-default {
   color: $font-button-color;
 }
 
+.button-splash {
+  background-color: Transparent;
+  padding: 35px;
+  border: 4px solid #ddd;
+  color: #ddd;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 24px;
+  border-radius: 35px;
+}
+
 .sorry-message {
   text-align: center;
   vertical-align: middle;
@@ -132,6 +147,46 @@ th {
   text-align: center;
 }
 
+.container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.backsplash {
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(rgba(26,26,26,0.8), rgba(26,26,26,0.8)), url('../app/images/splash-overlay.jpg');
+  background-repeat:no-repeat;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  background-size:cover;
+  background-position:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-text {
+  max-width: 80%;
+}
+
+.button-div {
+  display: flex;
+  justify-content: center;
+}
+
+h4.call-out {
+  text-align: center;
+  font-size: 4rem;
+  color: #ddd;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
 
 @media screen and (max-width: 480px) {
   body {
@@ -139,6 +194,25 @@ th {
     font-size: 1.25rem;
     height: 100%;
     display: grid;
+  }
+
+  h4.call-out {
+    font-size: 3rem;
+  }
+
+  .button-splash {
+    background-color: Transparent;
+    padding: 20px;
+    border: 4px solid #ddd;
+    color: #ddd;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 1.75rem;
+    border-radius: 25px;
   }
 
   .form-container {
@@ -210,6 +284,19 @@ th {
     background-color: $background-color;
     height: 100%;
     display: grid;
+  }
+
+  h4.call-out {
+    text-align: center;
+    font-size: 5rem;
+    color: #ddd;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  .intro-text {
+    max-width: 60%;
   }
 
   .form-container {
