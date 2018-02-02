@@ -1,6 +1,6 @@
 @import './variables';
 @import './mixins';
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 * {
@@ -71,10 +71,6 @@ input.button-default {
   transition: all 0.3s ease 0s;
 }
 
-.container {
-  background-color: $background-color;
-}
-
 div.newTarget-div {
   display: flex;
   justify-content: center;
@@ -94,6 +90,7 @@ div.section-middle {
   background-color: $font-button-color;
   padding: 10px;
   margin-top: 0;
+    border-top: 1px solid #ddd;
 }
 
 div.section-stats {
@@ -109,6 +106,7 @@ h4.data-callout {
 h4.new-target-title {
   justify-content: center;
   align-items: center;
+  font-size: 1.75em;
 }
 
 .fa {
@@ -183,7 +181,6 @@ h4.new-target-title {
   color: $button-reg;
 }
 
-
 .button-splash {
   background-color: Transparent;
   padding: 35px;
@@ -249,7 +246,8 @@ td {
 }
 
 .intro-text-newTarget {
-  padding-bottom: 30px;
+  padding: 30px;
+  background-color: $font-button-color;
 }
 
 .button-div {
