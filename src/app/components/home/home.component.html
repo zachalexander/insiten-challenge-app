@@ -10,47 +10,58 @@
     </div>
 </div>
 
-  <div class = "section-middle">
-  <h4>List of Potential Targets</h4>
-  <table class="table table-hover">
-    <thead class="thead-dark">
-      <tr>
-        <th class="date">Status</th>
-        <th class="date">Company Name</th>
-        <th class="update">Location</th>
-        <th class="update">Key Contact</th>
-        <th class="date">Financial Information</th>
-        <th class="date">Edit/Delete</th>
-      </tr>
-    </thead>
-      <tbody>
-        <tr [routerLink]="['/profile/', targets._id]" *ngFor="let targets of targetPosts">
-          <td class="col-xs-1"><div class="small" [ngClass]="{
-          'div-declined':targets.status === 'Declined',
-          'div-approved':targets.status === 'Approved',
-          'div-pending':targets.status === 'Pending',
-          'div-edit':targets.status === 'Researching'
-          }">{{ targets.status}}</div></td>
-          <td class="col-xs-2">{{ targets.companyName}}</td>
-          <td class="col-xs-2">{{ targets.location }}</td>
-          <td class="col-xs-2">{{ targets.keyContact1 }}</td>
-          <td class="col-xs-3">{{ targets.financialPerformance }}</td>
-          <td class="col-xs-1">
-            <div class="dropdown">
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  <i class="fa fa-angle-down" aria-hidden="true"></i>
-                </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a [routerLink]="['/edit/', targets._id]">Edit</a></li>
-                <li><a [routerLink]="['/delete/', targets._id]">Delete</a></li>
-              </ul>
-            </div>
-          </td>
+<div class = "section-middle">
+  <div class = "container">
+    <h4>List of Potential Targets</h4>
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th class="date">Status</th>
+          <th class="date">Company Name</th>
+          <th class="update">Location</th>
+          <th class="date">Financial Information</th>
+          <th class="date">Edit/Delete</th>
         </tr>
-      </tbody>
-    </table>
+      </thead>
+        <tbody>
+          <tr *ngFor="let targets of targetPosts">
+            <td class="col-xs-1">
+            <div [routerLink]="['/profile/', targets._id]" class="small" [ngClass]="{
+            'div-declined':targets.status === 'Declined',
+            'div-approved':targets.status === 'Approved',
+            'div-pending':targets.status === 'Pending',
+            'div-edit':targets.status === 'Researching'
+            }">{{ targets.status}}</div></td>
+            <td [routerLink]="['/profile/', targets._id]" class="col-xs-3">{{ targets.companyName}}</td>
+            <td [routerLink]="['/profile/', targets._id]" class="col-xs-2">{{ targets.location }}</td>
+            <td [routerLink]="['/profile/', targets._id]" class="col-xs-5">{{ targets.financialPerformance }}</td>
+            <td class="col-xs-1">
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><a [routerLink]="['/edit/', targets._id]">Edit</a></li>
+                  <li><a [routerLink]="['/delete/', targets._id]">Delete</a></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
 <div class = "section-stats">
-  <h4 class = "data-callout">Full Look at Targets</h4>
+  <div class = "intro-bottom">
+    <h4 class = "data-callout">Here's a Quick Breakdown of Your Targets:</h4>
+  </div>
+  <div class = "container">
+    <div class = "col-md-6">
+      <div id="chartdiv1" [style.height.px]="400" [style.overflow]="hidden"></div>
+    </div>
+    <div class = "col-md-6">
+      <div id="chartdiv2" [style.height.px]="400" [style.overflow]="hidden"></div>
+    </div>
+  </div>
 </div>

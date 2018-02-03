@@ -1,0 +1,54 @@
+
+.amcharts-chart-div {
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  height: 400px;
+  padding: 0px;
+  touch-action: none;
+}
+
+g {
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+}
+
+svg {
+  position: absolute;
+  height: 400px;
+  top: 0px;
+}
+
+div.section-stats {
+  background-image: linear-gradient(180deg, #31708f, #28556b);
+}
+
+div.intro-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+h4.data-callout {
+  color: #fff;
+  margin-top: 0;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+}
+
+.amcharts-chart-div a {display:none !important;}
+
+.amcharts-chart-div text {
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  color: #fff;
+  font-size: 15px;
+}
+
+#chartdiv1 {
+  width: 100%;
+}
+
+#chartdiv2 {
+  width: 100%;
+}

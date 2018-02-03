@@ -4,6 +4,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {RouterModule, Routes} from '@angular/router';
 import { LoadingModule } from 'ngx-loading';
+import { AmChartsModule } from "@amcharts/amcharts3-angular";
 
 import { AppComponent } from './app.component';
 import { NewtargetComponent } from './components/newtarget/newtarget.component';
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    LoadingModule
+    LoadingModule,
+    AmChartsModule
   ],
   exports: [],
   providers: [TargetService],
