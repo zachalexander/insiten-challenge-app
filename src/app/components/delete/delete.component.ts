@@ -43,7 +43,7 @@ export class DeleteComponent implements OnInit {
       } else {
         this.loading = true;
         setTimeout(() => {
-          this.router.navigate(['/home/']);
+          this.router.navigate(['/dashboard/']);
           this.loading = false;
         }, 3000);
       }

@@ -82,15 +82,13 @@ div.section-top {
   padding: 10px;
   margin-top: 15px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
 }
 
 div.section-middle {
   background-color: $font-button-color;
   padding: 10px;
   margin-top: 0;
-  border-top: 1px solid #ddd;
 }
 
 h4.new-target-title {
@@ -164,6 +162,7 @@ h4.new-target-title {
   justify-content: center;
   align-items: center;
   border: 1px solid $button-reg;
+  padding: 16px;
 }
 
 .button-new-target:hover {
@@ -233,12 +232,6 @@ td {
 
 .intro-text {
   max-width: 80%;
-}
-
-.intro-text-newTarget {
-  padding: 30px;
-  background-color: $font-button-color;
-  border: 1px solid $border-color;
 }
 
 .button-div {

@@ -2,7 +2,7 @@
   <div class = "form-container">
     <div class = "sorry-message">
       <h5>Sorry, but this target does not exist.</h5>
-      <a [routerLink]="['/home/']"><button  *ngIf="!loadingEditPage" class="button-default" type="button" aria-haspopup="true" aria-expanded="true">
+      <a [routerLink]="['/dashboard/']"><button  *ngIf="!loadingEditPage" class="button-default" type="button" aria-haspopup="true" aria-expanded="true">
       Go Back
       </button></a>
     </div>
@@ -12,7 +12,7 @@
 <div *ngIf="loadEditPage">
   <div class = "form-container">
     <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
-    <h4 class="page-header">{{targetSpecific.companyName}} - Information</h4>
+    <h4 class="page-header">{{targetSpecific.companyName}}</h4>
     <!-- Beginning of Form -->
     <div (submit)="deleteTargetFinal()">
       <!-- Input Fields Start -->
@@ -35,7 +35,7 @@
       </div>
         <!-- Submit Button -->
 
-      <a routerLink='/home'><button type="button" name="button" class="button-reg">Go Back</button></a>
+      <a routerLink='/dashboard/'><button type="button" name="button" class="button-reg">Go Back</button></a>
     </div>
     <!-- End of Form -->
   </div>

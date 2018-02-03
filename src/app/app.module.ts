@@ -19,7 +19,7 @@ import {TargetService} from './services/target.service';
 
 const appRoutes: Routes = [
   {path:'', component: SplashComponent},
-  {path:'home', component: HomeComponent},
+  {path:'dashboard', component: HomeComponent},
   {path:'newtarget', component: NewtargetComponent},
   {path:'edit/:id', component: EditComponent},
   {path:'delete/:id', component: DeleteComponent},

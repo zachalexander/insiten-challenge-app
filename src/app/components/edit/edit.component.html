@@ -2,7 +2,7 @@
   <div class = "form-container">
     <div class = "sorry-message">
       <h5>Sorry, but this target does not exist.</h5>
-      <a [routerLink]="['/home/']"><button  *ngIf="!loadingEditPage" class="button-default" type="button" aria-haspopup="true" aria-expanded="true">
+      <a [routerLink]="['/dashboard/']"><button  *ngIf="!loadingEditPage" class="button-default" type="button" aria-haspopup="true" aria-expanded="true">
       Go Back
       </button></a>
     </div>
@@ -94,7 +94,7 @@
           <!-- Input Fields End -->
 
           <!-- Submit Button -->
-          <input [disabled]="!form.valid" type="submit" class="button-default" value="Submit Changes"><a [routerLink]="['/home/']">&nbsp;<button class="button-reg" type="button" aria-haspopup="true" aria-expanded="true">
+          <input [disabled]="!form.valid" type="submit" class="button-default" value="Submit Changes"><a [routerLink]="['/dashboard/']">&nbsp;<button class="button-reg" type="button" aria-haspopup="true" aria-expanded="true">
             Go Back
           </button></a>
       </form>
