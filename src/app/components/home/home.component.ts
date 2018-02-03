@@ -9,6 +9,8 @@ import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
 })
 export class HomeComponent implements OnInit {
   targetPosts;
+  pieArray = [];
+  maxRevenueArray: this.maxRevenueArray[0];
   public loading = false;
   private chart: AmChart;
 
@@ -21,62 +23,49 @@ export class HomeComponent implements OnInit {
   getAllTargets() {
     this.targetService.getAllTargets().subscribe(data => {
         this.targetPosts = data.targets;
-    });
+        const pieData = data.targets;
+        const pieArray = [];
+        const pieNumber = [];
+        const maxRevenue = [];
+
+        pieData.forEach(function (value) {
+          pieArray.push(
+            {
+              "companyName": value.companyName,
+              "totalRevenue": value.totalRevenue
+            }
+          )
+          pieNumber.push(value.totalRevenue);
+        });
+
+        const maxValue = Math.max.apply(null, pieNumber)
+          pieArray.forEach(function (value) {
+            if (value.totalRevenue === maxValue) {
+              maxRevenue.push({
+                "companyName": value.companyName,
+                "totalRevenue": value.totalRevenue
+              });
+            }
+          });
+        this.maxRevenueArray = maxRevenue[0];
+
+        this.chart = this.AmCharts.makeChart("chartdiv1", {
+          "type": "pie",
+          "theme": "dark",
+          "hideCredits": true,
+          "showBalloon": false,
+          "fontFamily": 'Open Sans',
+          "fontSize": 15,
+          "dataProvider": pieArray,
+           "titleField": "companyName",
+           "valueField": "totalRevenue",
+           "labelRadius": 8,
+           "radius": "30%",
+           "innerRadius": "50%",
+           "labelText": "[[title]]"
+        });
+      });
   }
-
-  ngAfterViewInit() {
-   this.chart = this.AmCharts.makeChart("chartdiv1", {
-     "type": "pie",
-     "theme": "dark",
-     "hideCredits": true,
-     "showBalloon": false,
-     "fontFamily": 'Open Sans',
-     "fontSize": 15,
-     "dataProvider": [{
-        "title": "New",
-        "value": 4852
-        }, {
-        "title": "Returning",
-        "value": 9899
-      }],
-      "titleField": "title",
-      "valueField": "value",
-      "labelRadius": 5,
-      "radius": "42%",
-      "innerRadius": "60%",
-      "labelText": "[[title]]"
-   });
-
-   var chart = this.AmCharts.makeChart("chartdiv2",{
-     "type": "serial",
-     "theme": "dark",
-     "categoryField": "category",
-     "fontFamily": 'Open Sans',
-     "fontSize": 15,
-     "hideCredits": true,
-     "lineColor": "#ffffff",
-     "graphs": [
-       {
-         "type": "column",
-         "valueField": "value",
-         "showBalloon": false
-       }
-     ],
-     "dataProvider": [
-       {
-         "category": "category 1",
-         "value": 8,
-       },
-       {
-         "category": "category 2",
-         "value": 4,
-       }
-     ],
-     "export": {
-       "enabled": false
-    }
-   });
- }
 
   ngOnInit() {
     this.loading = true;

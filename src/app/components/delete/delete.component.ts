@@ -17,7 +17,8 @@ export class DeleteComponent implements OnInit {
     location: String,
     keyContact1: String,
     keyContact2: String,
-    financialPerformance: String
+    financialPerformance: String,
+    totalRevenue: Number
   }
   currentUrl;
   message;
