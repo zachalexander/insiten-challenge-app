@@ -17,7 +17,8 @@ export class EditComponent implements OnInit {
     location: String,
     keyContact1: String,
     keyContact2: String,
-    financialPerformance: String
+    financialPerformance: String,
+    totalRevenue: Number
   }
   form: FormGroup;
   buttonChange = true;
@@ -69,8 +70,24 @@ export class EditComponent implements OnInit {
           Validators.minLength(2),
           Validators.maxLength(70)
         ])],
+        totalRevenue: ['', Validators.compose([
+          Validators.required,
+          this.validateNumeric // Custom validation
+        ])]
       })
     }
+
+      // Function to validate e-mail is proper format
+   validateNumeric(controls) {
+     // Create a regular expression
+     const regExp = new RegExp(/^\$?[0-9]+\.?[0-9]?[0-9]?$/);
+     // Test email against regular expression
+     if (regExp.test(controls.value)) {
+       return null; // Return as valid email
+     } else {
+       return { 'validateNumeric': true } // Return as invalid email
+     }
+   }
 
     statusSelectUpdate(x) {
       this.status = x;
@@ -109,9 +126,13 @@ export class EditComponent implements OnInit {
       this.target.status = this.status;
       this.targetService.editTarget(this.target).subscribe(data => {
         if (!data.success) {
-          console.log('this did not work');
+          this.messageClass = 'alert alert-danger';
+          this.message = data.message;
+          this.loading = false;
         } else {
           this.loading = true;
+          this.messageClass = 'alert alert-success';
+          this.message = data.message;
           setTimeout(() => {
             this.router.navigate(['/dashboard/']);
             this.loading = false;
@@ -128,7 +149,6 @@ export class EditComponent implements OnInit {
       this.currentUrl = this.activatedRoute.snapshot.params;
       this.targetService.getSingleTarget(this.currentUrl.id).subscribe(data => {
         if (!data.success) {
-          console.log('this did not work');
           this.loadEditPage = false;
         } else {
           this.loadEditPage = true;

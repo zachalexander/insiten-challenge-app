@@ -16,6 +16,7 @@ export class NewtargetComponent implements OnInit {
   keyContact1: String;
   keyContact2: String;
   financialPerformance: String;
+  totalRevenue: Number;
   form: FormGroup;
   statusArray = ['Researching', 'Pending', 'Approved', 'Declined'];
   buttonChange = true;
@@ -71,8 +72,24 @@ export class NewtargetComponent implements OnInit {
          Validators.minLength(2),
          Validators.maxLength(70)
        ])],
+       totalRevenue: ['', Validators.compose([
+         Validators.required,
+         this.validateNumeric // Custom validation
+       ])],
      })
    }
+
+       // Function to validate e-mail is proper format
+    validateNumeric(controls) {
+      // Create a regular expression
+      const regExp = new RegExp(/^\$?[0-9]+\.?[0-9]?[0-9]?$/);
+      // Test email against regular expression
+      if (regExp.test(controls.value)) {
+        return null; // Return as valid email
+      } else {
+        return { 'validateNumeric': true } // Return as invalid email
+      }
+    }
 
    statusSelect(x) {
      this.statusUpdate = x;
@@ -126,7 +143,8 @@ export class NewtargetComponent implements OnInit {
        location: this.location,
        keyContact1: this.keyContact1,
        keyContact2: this.keyContact2,
-       financialPerformance: this.financialPerformance
+       financialPerformance: this.financialPerformance,
+       totalRevenue: this.totalRevenue
      }
      // Submit Post
      this.targetService.submitTarget(target).subscribe(data => {

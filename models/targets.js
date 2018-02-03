@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const config = require('../config/database');
 
-
 //Target Schema
 const targetSchema = mongoose.Schema({
   status: {
@@ -21,6 +20,9 @@ const targetSchema = mongoose.Schema({
   },
   financialPerformance: {
     type: String
+  },
+  totalRevenue: {
+    type: Number
   }
 });
 

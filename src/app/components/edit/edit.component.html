@@ -91,10 +91,19 @@
               <li *ngIf="form.controls.financialPerformance.errors?.minlength || form.controls.financialPerformance.errors?.maxlength">Minimum characters: 2, Maximum characters: 70</li>
             </ul>
           </div>
+
+          <label for="totalRevenue">Estimated Total Revenue in 2017</label><br />
+          <div [ngClass]="{'has-error': (form.controls.totalRevenue.errors && form.controls.totalRevenue.dirty) , 'has-success': (!form.controls.totalRevenue.errors)}">
+            <input type="text" [(ngModel)]="target.totalRevenue" name="totalRevenue" formControlName="totalRevenue" autocomplete="off" class="form-control">
+            <ul class="help-block">
+              <li *ngIf="form.controls.totalRevenue.errors?.required && form.controls.totalRevenue.dirty">This field is required.</li>
+              <li *ngIf="form.controls.totalRevenue.errors?.validateNumeric && form.controls.totalRevenue.dirty">This must be a positive number without comma separators or symbols.</li>
+            </ul>
+          </div>
           <!-- Input Fields End -->
 
           <!-- Submit Button -->
-          <input [disabled]="!form.valid" type="submit" class="button-default" value="Submit Changes"><a [routerLink]="['/dashboard/']">&nbsp;<button class="button-reg" type="button" aria-haspopup="true" aria-expanded="true">
+          <input [disabled]="!form.valid || !validateNumeric" type="submit" class="button-default" value="Submit Changes"><a [routerLink]="['/dashboard/']">&nbsp;<button class="button-reg" type="button" aria-haspopup="true" aria-expanded="true">
             Go Back
           </button></a>
       </form>

@@ -1,9 +1,9 @@
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
   <div class = "form-container">
-      <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
       <h4 class="page-header">Create a New Target</h4>
 
       <!-- Shows validation messages -->
-        <div [ngClass] = "messageClass">{{ message }}</div>
+      <div [ngClass] = "messageClass">{{ message }}</div>
       <!-- End of validation messages -->
 
       <!-- Status of Acquisition Button -->
@@ -63,7 +63,7 @@
           <div [ngClass]="{'has-error': (form.controls.keyContact2.errors && form.controls.keyContact2.dirty)}">
             <input *ngIf="moreContacts1" type="text" [(ngModel)]="keyContact2" name="keyContact2" formControlName="keyContact2" autocomplete="off" class="form-control">
             <ul class="help-block">
-              <li *ngIf="form.controls.keyContact2.errors?.required && form.controls.keyContact2.dirty">This field is required.</li>
+              <li *ngIf="form.controls.keyContact2.dirty">This field is required.</li>
               <li *ngIf="form.controls.keyContact2.errors?.minlength || form.controls.keyContact2.errors?.maxlength">Minimum characters: 2, Maximum characters: 45</li>
             </ul>
           </div>
@@ -76,10 +76,18 @@
               <li *ngIf="form.controls.financialPerformance.errors?.minlength || form.controls.financialPerformance.errors?.maxlength">Minimum characters: 2, Maximum characters: 70</li>
             </ul>
           </div>
+          <label for="totalRevenue">Estimated Total Revenue in 2017</label><br />
+          <div [ngClass]="{'has-error': (form.controls.totalRevenue.errors && form.controls.totalRevenue.dirty) , 'has-success': (!form.controls.totalRevenue.errors)}">
+            <input type="text" [(ngModel)]="totalRevenue" name="totalRevenue" formControlName="totalRevenue" autocomplete="off" class="form-control">
+            <ul class="help-block">
+              <li *ngIf="form.controls.totalRevenue.errors?.required && form.controls.totalRevenue.dirty">This field is required.</li>
+              <li *ngIf="form.controls.totalRevenue.errors?.validateNumeric && form.controls.totalRevenue.dirty">This must be a positive number without comma separators or symbols.</li>
+            </ul>
+          </div>
           <!-- Input Fields End -->
 
           <!-- Submit Button -->
-          <input type="submit" class="button-default" value="Submit"><a [routerLink]="['/dashboard/']">&nbsp;<button class="button-reg" type="button" aria-haspopup="true" aria-expanded="true">
+          <input [disabled]="!form.valid || !validateNumeric" type="submit" class="button-default" value="Submit"><a [routerLink]="['/dashboard/']">&nbsp;<button class="button-reg" type="button" aria-haspopup="true" aria-expanded="true">
             Go Back
           </button></a>
       </form>
