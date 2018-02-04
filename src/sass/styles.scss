@@ -1,15 +1,14 @@
 @import './variables';
-@import './mixins';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 * {
   box-sizing: border-box;
+  font-family: $fonts;
 }
 
 html {
   font-size: $font-size;
-  height: 100%;
 }
 
 ul {
@@ -20,47 +19,42 @@ li {
   list-style: none;
 }
 
+a,
+a:link,
+a:visited,
+a:hover,
+a:focus,
+a:active {
+  color: $font-color;
+  text-decoration: none;
+}
+
+th {
+  color: $font-color;
+  cursor: pointer;
+}
+
+td {
+  color: $font-color;
+  cursor: pointer;
+}
+
+// ===================
+// BUTTON STYLINGS
+// ===================
+
 button {
   justify-content: center;
-  background-color: #fff;
+  background-color: $font-button-color;
   padding: 7px 10px 7px 10px;
   border-radius: 3px;
   transition: all 0.3s ease 0s;
-  border: 1px solid #31708f;
+  border: 1px solid $button-default;
 }
 
 button:hover {
-  background: #f7f7f7;
+  background: $button-background-color;
   color: $font-color;
-}
-
-div.small {
-  justify-content: center;
-  text-align: center;
-  padding: 4px 6px 4px 6px;
-  border-radius: 3px;
-  font-size: 0.8em;
-  transition: all 0.3s ease 0s;
-}
-
-.div-approved {
-  background-color: $button-success;
-  color: $font-button-color;
-}
-
-.div-edit {
-  background-color: $button-edit;
-  color: $font-button-color;
-}
-
-.div-pending {
-  background-color: $button-pending;
-  color: $font-button-color;
-}
-
-.div-declined {
-  background-color: $button-declined;
-  color: $font-button-color;
 }
 
 input.button-default {
@@ -70,47 +64,12 @@ input.button-default {
   padding: 7px 10px 7px 10px;
   border-radius: 3px;
   transition: all 0.3s ease 0s;
+  cursor: pointer;
 }
 
 input[disabled]:hover {
     cursor: not-allowed;
     background-color: #97a9b2;
-}
-
-div.newTarget-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-div.section-top {
-  background-color: $background-color;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-}
-
-div.section-middle {
-  background-color: $font-button-color;
-  padding: 10px;
-  margin-top: 0;
-}
-
-h4.new-target-title {
-  justify-content: center;
-  align-items: center;
-  font-size: 1.75em;
-}
-
-.fa {
-  justify-content: center;
-  vertical-align: middle;
-  padding-bottom: 3px;
-  color: #31708f;
-}
-
-.fa.fa-angle-double-right {
-  color: $font-button-color;
 }
 
 .button-success {
@@ -175,35 +134,24 @@ h4.new-target-title {
   color: $button-reg;
 }
 
-.button-splash {
-  background-color: Transparent;
-  padding: 35px;
-  border: 4px solid #ddd;
-  color: #ddd;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
+// ===================
+// FA ICON STYLINGS
+// ===================
+
+.fa {
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 24px;
-  border-radius: 35px;
+  vertical-align: middle;
+  padding-bottom: 3px;
+  color: #31708f;
 }
 
-.backsplash {
-  height: 100%;
-  width: 100%;
-  background-image: linear-gradient(rgba(26,26,26,0.8), rgba(26,26,26,0.8)), url('../app/images/splash-overlay.jpg');
-  background-repeat:no-repeat;
-  -webkit-background-size:cover;
-  -moz-background-size:cover;
-  -o-background-size:cover;
-  background-size:cover;
-  background-position:center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.fa.fa-angle-double-right {
+  color: $font-button-color;
 }
+
+// ===================
+// SORRY MESSAGE STYLINGS
+// ===================
 
 .sorry-message {
   text-align: center;
@@ -211,146 +159,24 @@ h4.new-target-title {
   padding-top: 40px;
 }
 
-a,
-a:link,
-a:visited,
-a:hover,
-a:focus,
-a:active {
-  color: $font-color;
-  text-decoration: none;
-}
-
-th {
-  color: $font-color;
-  cursor: pointer;
-}
-
-td {
-  color: $font-color;
-  cursor: pointer;
-}
-
-th.status {
-  text-align: center;
-}
-
-td.status {
-  text-align: center;
-}
-
-th.edit {
-  text-align: center;
-}
-
-td.edit {
-  text-align: center;
-}
-
-.intro-text {
-  max-width: 80%;
-}
-
-.button-div {
-  display: flex;
-  justify-content: center;
-}
-
-.container-splash {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-
-h4.call-out {
-  text-align: center;
-  font-size: 4rem;
-  color: #ddd;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 50px;
-}
+// ===================
+// RESPONSIVE LAYOUT
+// ===================
 
 @media screen and (max-width: 480px) {
   body {
-    font-family: $fonts;
     font-size: 1.25rem;
     height: 100%;
     display: grid;
   }
-
-  div.col-xs-6 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-  }
-
-  .amcharts-chart-div text {
-    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
-    color: #fff;
-    font-size: .85em;
-  }
-
-  .form-container {
-    background-color: #fff;
-    padding-bottom: 40px;
-    margin-right: 10px;
-    margin-left: 10px;
-  }
-
-  h4.call-out {
-    font-size: 3rem;
-  }
-
-  .button-splash {
-    background-color: Transparent;
-    padding: 20px;
-    border: 4px solid #ddd;
-    color: #ddd;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    font-size: 1.75rem;
-    border-radius: 25px;
-  }
-
-  .toggleDisplay {
-    display: none;
-  }
-  th.companyName {
-    text-align: center;
-  }
-
-  td.companyName {
-    text-align: center;
-  }
-
-  .button-new-target {
-    background-color: #31708f;
-    color: $button-reg;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid $button-reg;
-    padding: 12px;
-  }
-
 }
 
 @media screen and (min-width: 480px) and (max-width: 520px) {
   body {
-    font-family: $fonts;
     font-size: 1.25rem;
     height: 100%;
     display: grid;
   }
-
   .form-container {
     background-color: #fff;
     padding-bottom: 40px;
@@ -358,35 +184,16 @@ h4.call-out {
     padding-left: 20px;
     max-width: 500px;
     margin: auto;
-  }
-
-  .toggleDisplay {
-    display: none;
-  }
-  th.companyName {
-    text-align: center;
-  }
-
-  td.companyName {
-    text-align: center;
-  }
-
-  div.col-xs-6 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 200px;
   }
 }
 
 @media screen and (min-width: 520px) and (max-width: 768px) {
   body {
-    font-family: $fonts;
     font-size: 1.5rem;
     height: 100%;
     display: grid;
   }
+
   .form-container {
     background-color: #fff;
     padding-bottom: 40px;
@@ -394,34 +201,17 @@ h4.call-out {
     padding-left: 20px;
     max-width: 500px;
     margin: auto;
-  }
-  .toggleDisplay {
-    display: none;
-  }
-  th.companyName {
-    text-align: center;
-  }
-
-  td.companyName {
-    text-align: center;
-  }
-  div.col-xs-12 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 200px;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
   body {
-    font-family: $fonts;
     font-size: 1.5rem;
     background-color: $background-color;
     height: 100%;
     display: grid;
   }
+
   .form-container {
     background-color: #fff;
     padding-bottom: 40px;
@@ -430,19 +220,11 @@ h4.call-out {
     max-width: 500px;
     border: 1px solid $border-color;
     margin: auto;
-  }
-  div.col-xs-6 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 200px;
   }
 }
 
 @media screen and (min-width: 991px) {
   body {
-    font-family: $fonts;
     font-size: 1.5rem;
     background-color: $background-color;
     height: 100%;
@@ -458,24 +240,4 @@ h4.call-out {
     border: 1px solid $border-color;
     margin: auto;
   }
-
-    h4.call-out {
-      text-align: center;
-      font-size: 5rem;
-      color: #ddd;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 50px;
-    }
-
-    .intro-text {
-      max-width: 60%;
-    }
-    div.col-xs-6 {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 400px;
-    }
 }

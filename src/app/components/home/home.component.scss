@@ -1,21 +1,26 @@
+@import '~sass/variables';
 
-.amcharts-chart-div {
-  overflow: hidden;
-  position: relative;
-  text-align: left;
-  height: 400px;
-  padding: 0px;
-  touch-action: none;
+// ===================
+// DIV STYLING
+// ===================
+
+div.newTarget-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-g {
-  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+div.section-top {
+  background-color: $background-color;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
-svg {
-  position: absolute;
-  height: 400px;
-  top: 0px;
+div.section-middle {
+  background-color: $font-button-color;
+  padding: 10px;
+  margin-top: 0;
 }
 
 div.section-stats {
@@ -27,6 +32,65 @@ div.intro-bottom {
   justify-content: center;
   align-items: center;
   padding: 40px;
+}
+
+// ===================
+// TABLE STYLING
+// ===================
+
+div.small {
+  justify-content: center;
+  text-align: center;
+  padding: 4px 6px 4px 6px;
+  border-radius: 3px;
+  font-size: 0.8em;
+  transition: all 0.3s ease 0s;
+}
+
+.div-approved {
+  background-color: $button-success;
+  color: $font-button-color;
+}
+
+.div-edit {
+  background-color: $button-edit;
+  color: $font-button-color;
+}
+
+.div-pending {
+  background-color: $button-pending;
+  color: $font-button-color;
+}
+
+.div-declined {
+  background-color: $button-declined;
+  color: $font-button-color;
+}
+
+th.status {
+  text-align: center;
+}
+
+td.status {
+  text-align: center;
+}
+
+th.edit {
+  text-align: center;
+}
+
+td.edit {
+  text-align: center;
+}
+
+// ===================
+// ELEMENT STYLING
+// ===================
+
+h4.new-target-title {
+  justify-content: center;
+  align-items: center;
+  font-size: 1.75em;
 }
 
 h4.data-callout {
@@ -51,6 +115,19 @@ p.totalRev-answer {
   justify-content: center;
 }
 
+// ===================
+// PIE CHART STYLING
+// ===================
+
+.amcharts-chart-div {
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  height: 400px;
+  padding: 0px;
+  touch-action: none;
+}
+
 .amcharts-chart-div a {display:none !important;}
 
 .amcharts-chart-div text {
@@ -59,10 +136,131 @@ p.totalRev-answer {
   font-size: 12px;
 }
 
+g {
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+}
+
+svg {
+  position: absolute;
+  height: 400px;
+  top: 0px;
+}
+
 #chartdiv1 {
   width: 100%;
 }
 
 #chartdiv2 {
   width: 100%;
+}
+
+// ===================
+// RESPONSIVE LAYOUT
+// ===================
+
+@media screen and (max-width: 480px) {
+
+  div.col-xs-6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+  }
+
+  .amcharts-chart-div text {
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    color: #fff;
+    font-size: .85em;
+  }
+
+  .toggleDisplay {
+    display: none;
+  }
+
+  th.companyName {
+    text-align: center;
+  }
+
+  td.companyName {
+    text-align: center;
+  }
+
+  .button-new-target {
+    background-color: #31708f;
+    color: $button-reg;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $button-reg;
+    padding: 12px;
+  }
+
+}
+
+@media screen and (min-width: 480px) and (max-width: 520px) {
+
+  .toggleDisplay {
+    display: none;
+  }
+
+  th.companyName {
+    text-align: center;
+  }
+
+  td.companyName {
+    text-align: center;
+  }
+
+  div.col-xs-6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+  }
+}
+
+@media screen and (min-width: 520px) and (max-width: 768px) {
+
+  .toggleDisplay {
+    display: none;
+  }
+
+  th.companyName {
+    text-align: center;
+  }
+
+  td.companyName {
+    text-align: center;
+  }
+
+  div.col-xs-12 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+
+  div.col-xs-6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+  }
+}
+
+@media screen and (min-width: 991px) {
+
+  div.col-xs-6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+  }
 }

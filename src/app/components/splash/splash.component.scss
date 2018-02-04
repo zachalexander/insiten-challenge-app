@@ -1,0 +1,133 @@
+@import '~sass/variables';
+
+.backsplash {
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(rgba(26,26,26,0.8), rgba(26,26,26,0.8)), url('../../images/splash-overlay.jpg');
+  background-repeat:no-repeat;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  background-size:cover;
+  background-position:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-splash {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.button-splash {
+  background-color: Transparent;
+  padding: 35px;
+  border: 4px solid #ddd;
+  color: #ddd;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+.intro-text {
+  max-width: 80%;
+}
+
+.button-div {
+  display: flex;
+  justify-content: center;
+}
+
+h4.call-out {
+  text-align: center;
+  font-size: 4rem;
+  color: #ddd;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+// ===================
+// RESPONSIVE LAYOUT
+// ===================
+
+@media screen and (max-width: 480px) {
+
+  .button-splash {
+    border-radius: 25px;
+    font-size: 2rem;
+    padding: 20px;
+  }
+
+  h4.call-out {
+    font-size: 3rem;
+  }
+
+}
+
+@media screen and (min-width: 480px) and (max-width: 520px) {
+
+  .button-splash {
+    border-radius: 25px;
+    font-size: 2rem;
+    padding: 20px;
+  }
+
+  h4.call-out {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (min-width: 520px) and (max-width: 768px) {
+  .button-splash {
+    border-radius: 25px;
+    font-size: 2.75rem;
+    padding: 25px;
+  }
+
+  h4.call-out {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .button-splash {
+    border-radius: 25px;
+    font-size: 2.75rem;
+    padding: 30px;
+  }
+
+  h4.call-out {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (min-width: 991px) {
+  .button-splash {
+    border-radius: 35px;
+    font-size: 3rem;
+    padding: 35px;
+  }
+
+  h4.call-out {
+    text-align: center;
+    font-size: 5rem;
+    color: #ddd;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  .intro-text {
+    max-width: 60%;
+  }
+}
