@@ -10,6 +10,7 @@
   </div>
 </div>
 
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
 <div *ngIf="loadEditPage">
   <div class = "form-container">
     <h4 class="page-header">Are you sure you want to delete this entry?</h4>

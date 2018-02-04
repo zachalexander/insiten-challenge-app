@@ -7,7 +7,8 @@ const targetSchema = mongoose.Schema({
     type: String
   },
   companyName: {
-    type: String
+    type: String,
+    unique: true
   },
   location: {
     type: String

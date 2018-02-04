@@ -64,6 +64,22 @@ export class HomeComponent implements OnInit {
            "innerRadius": "50%",
            "labelText": "[[title]]"
         });
+
+        this.chart = this.AmCharts.makeChart("chartdiv2", {
+          "type": "pie",
+          "theme": "dark",
+          "hideCredits": true,
+          "showBalloon": false,
+          "fontFamily": 'Open Sans',
+          "fontSize": 15,
+          "dataProvider": pieArray,
+           "titleField": "companyName",
+           "valueField": "totalRevenue",
+           "labelRadius": 8,
+           "radius": "30%",
+           "innerRadius": "50%",
+           "labelText": "[[title]]"
+        });
       });
   }
 

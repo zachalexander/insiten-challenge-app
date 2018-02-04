@@ -1,4 +1,4 @@
-  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
   <div class = "container">
     <div class = "section-top">
       <h4 class = "new-target-title">Target Dashboard</h4>
@@ -11,14 +11,15 @@
   <div class = "section-middle">
     <div class = "container">
       <h4>List of Potential Targets</h4>
-      <table class="table table-responsive table-hover">
+      <table class="table table-hover">
         <thead class="thead-dark">
           <tr>
-            <th class="date">STATUS</th>
-            <th class="date">COMPANY NAME</th>
-            <th class="update">LOCATION</th>
-            <th class="date">FINANCIAL INFORMATION</th>
-            <th class="date">EDIT/DELETE</th>
+            <th class="status">STATUS</th>
+            <th class="companyName">COMPANY NAME</th>
+            <th class="toggleDisplay">LOCATION</th>
+            <th class="toggleDisplay">FINANCIAL INFORMATION</th>
+            <th class="toggleDisplay">KEY CONTACT NAME</th>
+            <th class="edit">EDIT/DELETE</th>
           </tr>
         </thead>
           <tbody>
@@ -30,10 +31,11 @@
               'div-pending':targets.status === 'Pending',
               'div-edit':targets.status === 'Researching'
               }">{{ targets.status}}</div></td>
-              <td [routerLink]="['/profile/', targets._id]" class="col-xs-3">{{ targets.companyName}}</td>
-              <td [routerLink]="['/profile/', targets._id]" class="col-xs-2">{{ targets.location }}</td>
-              <td [routerLink]="['/profile/', targets._id]" class="col-xs-5">{{ targets.financialPerformance }}</td>
-              <td class="col-xs-1">
+              <td [routerLink]="['/profile/', targets._id]" class="companyName">{{ targets.companyName}}</td>
+              <td [routerLink]="['/profile/', targets._id]" class="toggleDisplay">{{ targets.location }}</td>
+              <td [routerLink]="['/profile/', targets._id]" class="toggleDisplay">{{ targets.financialPerformance }}</td>
+              <td [routerLink]="['/profile/', targets._id]" class="toggleDisplay">{{ targets.keyContact1 }}</td>
+              <td class="edit">
                 <div class="dropdown">
                   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                       <i class="fa fa-angle-down" aria-hidden="true"></i>
@@ -52,10 +54,10 @@
 
   <div class = "section-stats">
     <div class = "container">
-      <div class = "col-md-6">
+      <div class = "col-xs-6">
         <div id="chartdiv1" [style.height.px]="400"></div>
       </div>
-      <div class = "col-md-6">
+      <div class = "col-xs-6">
         <p class = "totalRev-callout">Which company on your list currently holds the highest revenue in 2017?</p><br>
         <p class = "totalRev-answer">{{maxRevenueArray.companyName}}</p>
       </div>

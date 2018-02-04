@@ -34,19 +34,23 @@ module.exports = (router) => {
                           totalRevenue: req.body.totalRevenue
                         });
                       newTarget.save((err) => {
-                        if(err) {
-                          res.json({success: false, message: "Cannot save company information."})
-                      } else {
-                        res.json({success: true, message: 'Company information has been saved!'});
+                          if(err) {
+                            if (err.code === 11000) {
+                              res.json({success: false, message: "This company name already exists in our records, please enter a different name."});
+                            } else {
+                              res.json({success: false, message: "Cannot save company information."});
+                            }
+                          } else {
+                              res.json({success: true, message: 'Company information has been saved!'});
+                            }
+                        });
                       }
-                  });
+                    }
+                  }
                 }
               }
             }
-          }
-        }
-      }
-  });
+        });
   // End of creating company information and adding to database
 
   // Get all targets in the database

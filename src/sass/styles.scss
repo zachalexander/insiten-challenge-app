@@ -36,6 +36,7 @@ button:hover {
 
 div.small {
   justify-content: center;
+  text-align: center;
   padding: 4px 6px 4px 6px;
   border-radius: 3px;
   font-size: 0.8em;
@@ -220,18 +221,30 @@ a:active {
   text-decoration: none;
 }
 
-table {
-  text-align: center;
-}
-
 th {
-  text-align: center;
   color: $font-color;
+  cursor: pointer;
 }
 
 td {
-  text-align: center;
   color: $font-color;
+  cursor: pointer;
+}
+
+th.status {
+  text-align: center;
+}
+
+td.status {
+  text-align: center;
+}
+
+th.edit {
+  text-align: center;
+}
+
+td.edit {
+  text-align: center;
 }
 
 .intro-text {
@@ -268,6 +281,20 @@ h4.call-out {
     display: grid;
   }
 
+  div.col-xs-6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+  }
+
+  .amcharts-chart-div text {
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    color: #fff;
+    font-size: .85em;
+  }
+
   .form-container {
     background-color: #fff;
     padding-bottom: 40px;
@@ -293,6 +320,27 @@ h4.call-out {
     font-size: 1.75rem;
     border-radius: 25px;
   }
+
+  .toggleDisplay {
+    display: none;
+  }
+  th.companyName {
+    text-align: center;
+  }
+
+  td.companyName {
+    text-align: center;
+  }
+
+  .button-new-target {
+    background-color: #31708f;
+    color: $button-reg;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $button-reg;
+    padding: 12px;
+  }
+
 }
 
 @media screen and (min-width: 480px) and (max-width: 520px) {
@@ -311,6 +359,25 @@ h4.call-out {
     max-width: 500px;
     margin: auto;
   }
+
+  .toggleDisplay {
+    display: none;
+  }
+  th.companyName {
+    text-align: center;
+  }
+
+  td.companyName {
+    text-align: center;
+  }
+
+  div.col-xs-6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+  }
 }
 
 @media screen and (min-width: 520px) and (max-width: 768px) {
@@ -328,9 +395,26 @@ h4.call-out {
     max-width: 500px;
     margin: auto;
   }
+  .toggleDisplay {
+    display: none;
+  }
+  th.companyName {
+    text-align: center;
+  }
+
+  td.companyName {
+    text-align: center;
+  }
+  div.col-xs-12 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+  }
 }
 
-@media screen and (min-width: 768px) and (max-width: 959px) {
+@media screen and (min-width: 768px) and (max-width: 991px) {
   body {
     font-family: $fonts;
     font-size: 1.5rem;
@@ -347,9 +431,16 @@ h4.call-out {
     border: 1px solid $border-color;
     margin: auto;
   }
+  div.col-xs-6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+  }
 }
 
-@media screen and (min-width: 959px) {
+@media screen and (min-width: 991px) {
   body {
     font-family: $fonts;
     font-size: 1.5rem;
@@ -379,5 +470,12 @@ h4.call-out {
 
     .intro-text {
       max-width: 60%;
+    }
+    div.col-xs-6 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 400px;
     }
 }
