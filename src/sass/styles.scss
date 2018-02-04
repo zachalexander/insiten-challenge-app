@@ -170,6 +170,15 @@ input[disabled]:hover {
     display: grid;
   }
 
+  .form-container {
+    background-color: #fff;
+    padding-bottom: 40px;
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+    max-width: 500px;
+    margin: auto !important;
+  }
+
   .fa.fa-angle-double-right {
     display: none;
   }
@@ -188,8 +197,7 @@ input[disabled]:hover {
     padding-right: 20px !important;
     padding-left: 20px !important;
     max-width: 500px;
-    margin-right: auto !important;
-    margin-left: auto !important;
+    margin: auto !important;
   }
 
   .fa.fa-angle-double-right {
@@ -210,8 +218,7 @@ input[disabled]:hover {
     padding-right: 20px !important;
     padding-left: 20px !important;
     max-width: 500px;
-    margin-right: auto !important;
-    margin-left: auto !important;
+    margin: auto !important;
   }
 }
 
