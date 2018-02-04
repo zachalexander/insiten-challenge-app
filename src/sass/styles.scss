@@ -169,6 +169,11 @@ input[disabled]:hover {
     height: 100%;
     display: grid;
   }
+
+  .fa.fa-angle-double-right {
+    display: none;
+  }
+
 }
 
 @media screen and (min-width: 480px) and (max-width: 520px) {
@@ -185,6 +190,10 @@ input[disabled]:hover {
     max-width: 500px;
     margin-right: auto !important;
     margin-left: auto !important;
+  }
+
+  .fa.fa-angle-double-right {
+    display: none;
   }
 }
 
