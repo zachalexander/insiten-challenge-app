@@ -1,63 +1,63 @@
-<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
-<div class = "container">
-  <div class = "section-top">
-    <h4 class = "new-target-title">Target Dashboard</h4>
-      <div class = "button-div">
-        <a [routerLink]="['/newtarget/']"><button class = "button-new-target">Create New Target&nbsp;<i class="fa fa-angle-double-right" aria-hidden="true"></i></button></a>
-      </div>
-  </div>
-</div>
-
-<div class = "section-middle">
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
   <div class = "container">
-    <h4>List of Potential Targets</h4>
-    <table class="table table-hover">
-      <thead class="thead-dark">
-        <tr>
-          <th class="date">STATUS</th>
-          <th class="date">COMPANY NAME</th>
-          <th class="update">LOCATION</th>
-          <th class="date">FINANCIAL INFORMATION</th>
-          <th class="date">EDIT/DELETE</th>
-        </tr>
-      </thead>
-        <tbody>
-          <tr *ngFor="let targets of targetPosts">
-            <td class="col-xs-1">
-            <div [routerLink]="['/profile/', targets._id]" class="small" [ngClass]="{
-            'div-declined':targets.status === 'Declined',
-            'div-approved':targets.status === 'Approved',
-            'div-pending':targets.status === 'Pending',
-            'div-edit':targets.status === 'Researching'
-            }">{{ targets.status}}</div></td>
-            <td [routerLink]="['/profile/', targets._id]" class="col-xs-3">{{ targets.companyName}}</td>
-            <td [routerLink]="['/profile/', targets._id]" class="col-xs-2">{{ targets.location }}</td>
-            <td [routerLink]="['/profile/', targets._id]" class="col-xs-5">{{ targets.financialPerformance }}</td>
-            <td class="col-xs-1">
-              <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                  </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <li><a [routerLink]="['/edit/', targets._id]">Edit</a></li>
-                  <li><a [routerLink]="['/delete/', targets._id]">Delete</a></li>
-                </ul>
-              </div>
-            </td>
+    <div class = "section-top">
+      <h4 class = "new-target-title">Target Dashboard</h4>
+        <div class = "button-div">
+          <a [routerLink]="['/newtarget/']"><button class = "button-new-target">Create New Target&nbsp;<i class="fa fa-angle-double-right" aria-hidden="true"></i></button></a>
+        </div>
+    </div>
+  </div>
+
+  <div class = "section-middle">
+    <div class = "container">
+      <h4>List of Potential Targets</h4>
+      <table class="table table-responsive table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th class="date">STATUS</th>
+            <th class="date">COMPANY NAME</th>
+            <th class="update">LOCATION</th>
+            <th class="date">FINANCIAL INFORMATION</th>
+            <th class="date">EDIT/DELETE</th>
           </tr>
-        </tbody>
-      </table>
+        </thead>
+          <tbody>
+            <tr *ngFor="let targets of targetPosts">
+              <td class="col-xs-1">
+              <div [routerLink]="['/profile/', targets._id]" class="small" [ngClass]="{
+              'div-declined':targets.status === 'Declined',
+              'div-approved':targets.status === 'Approved',
+              'div-pending':targets.status === 'Pending',
+              'div-edit':targets.status === 'Researching'
+              }">{{ targets.status}}</div></td>
+              <td [routerLink]="['/profile/', targets._id]" class="col-xs-3">{{ targets.companyName}}</td>
+              <td [routerLink]="['/profile/', targets._id]" class="col-xs-2">{{ targets.location }}</td>
+              <td [routerLink]="['/profile/', targets._id]" class="col-xs-5">{{ targets.financialPerformance }}</td>
+              <td class="col-xs-1">
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a [routerLink]="['/edit/', targets._id]">Edit</a></li>
+                    <li><a [routerLink]="['/delete/', targets._id]">Delete</a></li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
 
-<div class = "section-stats">
-  <div class = "container">
-    <div class = "col-md-6">
-      <div id="chartdiv1" [style.height.px]="400" [style.overflow]="hidden"></div>
-    </div>
-    <div class = "col-md-6">
-      <p class = "totalRev-callout">Which company on your list currently holds the highest revenue in 2017?</p><br>
-      <p class = "totalRev-answer">{{maxRevenueArray.companyName}}</p>
+  <div class = "section-stats">
+    <div class = "container">
+      <div class = "col-md-6">
+        <div id="chartdiv1" [style.height.px]="400" [style.overflow]="hidden"></div>
+      </div>
+      <div class = "col-md-6">
+        <p class = "totalRev-callout">Which company on your list currently holds the highest revenue in 2017?</p><br>
+        <p class = "totalRev-answer">{{maxRevenueArray.companyName}}</p>
+      </div>
     </div>
   </div>
-</div>

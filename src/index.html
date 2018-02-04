@@ -9,7 +9,8 @@
   <title>Insiten Application</title>
 </head>
 <body>
-  <ng4-loading-spinner> </ng4-loading-spinner>
+  <ng4-loading-spinner></ng4-loading-spinner>
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
   <app-root></app-root>
   <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
   <script src="https://www.amcharts.com/lib/3/pie.js"></script>
