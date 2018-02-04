@@ -10,7 +10,7 @@ import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
 export class HomeComponent implements OnInit {
   targetPosts;
   pieArray = [];
-  maxRevenueArray: this.maxRevenueArray[0];
+  maxRevenueArray;
   public loading = false;
   private chart: AmChart;
 
