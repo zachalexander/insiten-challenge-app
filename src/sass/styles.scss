@@ -9,6 +9,7 @@
 
 html {
   font-size: $font-size;
+  height: 100%;
 }
 
 ul {
@@ -31,7 +32,6 @@ a:active {
 
 th {
   color: $font-color;
-  cursor: pointer;
 }
 
 td {
@@ -180,10 +180,11 @@ input[disabled]:hover {
   .form-container {
     background-color: #fff;
     padding-bottom: 40px;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-right: 20px !important;
+    padding-left: 20px !important;
     max-width: 500px;
-    margin: auto;
+    margin-right: auto !important;
+    margin-left: auto !important;
   }
 }
 
@@ -197,17 +198,18 @@ input[disabled]:hover {
   .form-container {
     background-color: #fff;
     padding-bottom: 40px;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-right: 20px !important;
+    padding-left: 20px !important;
     max-width: 500px;
-    margin: auto;
+    margin-right: auto !important;
+    margin-left: auto !important;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
   body {
     font-size: 1.5rem;
-    background-color: $background-color;
+    background-color: $background-color !important;
     height: 100%;
     display: grid;
   }
@@ -226,7 +228,7 @@ input[disabled]:hover {
 @media screen and (min-width: 991px) {
   body {
     font-size: 1.5rem;
-    background-color: $background-color;
+    background-color: $background-color !important;
     height: 100%;
     display: grid;
   }
