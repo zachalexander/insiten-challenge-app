@@ -75,7 +75,8 @@ export class DeleteComponent implements OnInit {
           location: data.targets.location,
           keyContact1: data.targets.keyContact1,
           keyContact2: data.targets.keyContact2,
-          financialPerformance: data.targets.financialPerformance
+          financialPerformance: data.targets.financialPerformance,
+          totalRevenue: data.targets.totalRevenue
       }
     }
   });
