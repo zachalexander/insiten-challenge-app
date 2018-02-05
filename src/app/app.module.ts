@@ -41,7 +41,10 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    LoadingModule,
+    LoadingModule.forRoot({
+        backdropBackgroundColour: 'rgba(0,0,0,0.1)',
+        fullScreenBackdrop: true
+    }),
     AmChartsModule
   ],
   exports: [],

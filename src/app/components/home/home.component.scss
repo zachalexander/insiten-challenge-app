@@ -23,12 +23,6 @@ div.section-middle {
   margin-top: 0;
 }
 
-div.section-stats {
-  background-image: linear-gradient(180deg, #31708f, #28556b);
-  overflow: hidden;
-  bottom: 0;
-}
-
 div.intro-bottom {
   display: flex;
   justify-content: center;
@@ -135,7 +129,6 @@ p.totalRev-answer {
 .amcharts-chart-div text {
   font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
   color: #fff;
-  font-size: 12px;
 }
 
 g {
@@ -156,24 +149,20 @@ svg {
   width: 100%;
 }
 
+div.col-xs-12 {
+  background-image: linear-gradient(180deg, #31708f, #28556b);
+}
+
 // ===================
 // RESPONSIVE LAYOUT
 // ===================
 
 @media screen and (max-width: 480px) {
 
-  div.col-xs-6 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-  }
-
   .amcharts-chart-div text {
     font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
     color: #fff;
-    font-size: .85em;
+    font-size: 10px;
   }
 
   .toggleDisplay {
@@ -212,14 +201,6 @@ svg {
   td.companyName {
     text-align: center;
   }
-
-  div.col-xs-6 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 200px;
-  }
 }
 
 @media screen and (min-width: 520px) and (max-width: 768px) {
@@ -235,34 +216,12 @@ svg {
   td.companyName {
     text-align: center;
   }
-
-  div.col-xs-12 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 200px;
-  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
 
-  div.col-xs-6 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 200px;
-  }
 }
 
 @media screen and (min-width: 991px) {
 
-  div.col-xs-6 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 400px;
-  }
 }

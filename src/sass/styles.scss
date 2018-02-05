@@ -134,6 +134,10 @@ input[disabled]:hover {
   color: $button-reg;
 }
 
+.ngx-loading {
+  position: fixed;
+}
+
 // ===================
 // FA ICON STYLINGS
 // ===================
@@ -157,6 +161,11 @@ input[disabled]:hover {
   text-align: center;
   vertical-align: middle;
   padding-top: 40px;
+}
+
+.container-fluid {
+  margin-right: -15px !important;
+  margin-left: -15px !important;
 }
 
 // ===================
