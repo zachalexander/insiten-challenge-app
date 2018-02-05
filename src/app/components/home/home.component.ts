@@ -53,13 +53,11 @@ export class HomeComponent implements OnInit {
           "type": "pie",
           "theme": "dark",
           "hideCredits": true,
-          "responsive": {
-            "enabled": true
-          },
           "showBalloon": false,
           "fontFamily": 'Open Sans',
           "fontSize": 15,
           "dataProvider": pieArray,
+          "autoWrap": true,
            "titleField": "companyName",
            "valueField": "totalRevenue",
            "labelRadius": 8,

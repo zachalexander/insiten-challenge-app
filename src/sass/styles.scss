@@ -163,9 +163,8 @@ input[disabled]:hover {
   padding-top: 40px;
 }
 
-.container-fluid {
-  margin-right: -15px !important;
-  margin-left: -15px !important;
+.container {
+  margin: auto !important;
 }
 
 // ===================
@@ -176,7 +175,6 @@ input[disabled]:hover {
   body {
     font-size: 1.25rem;
     height: 100%;
-    display: grid;
   }
 
   .form-container {
@@ -198,7 +196,6 @@ input[disabled]:hover {
   body {
     font-size: 1.25rem;
     height: 100%;
-    display: grid;
   }
   .form-container {
     background-color: #fff;
@@ -218,7 +215,6 @@ input[disabled]:hover {
   body {
     font-size: 1.5rem;
     height: 100%;
-    display: grid;
   }
 
   .form-container {
@@ -236,7 +232,6 @@ input[disabled]:hover {
     font-size: 1.5rem;
     background-color: $background-color !important;
     height: 100%;
-    display: grid;
   }
 
   .form-container {
@@ -247,6 +242,11 @@ input[disabled]:hover {
     max-width: 500px;
     border: 1px solid $border-color;
     margin: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -255,7 +255,6 @@ input[disabled]:hover {
     font-size: 1.5rem;
     background-color: $background-color !important;
     height: 100%;
-    display: grid;
   }
 
   .form-container {
@@ -266,5 +265,10 @@ input[disabled]:hover {
     max-width: 500px;
     border: 1px solid $border-color;
     margin: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
 }

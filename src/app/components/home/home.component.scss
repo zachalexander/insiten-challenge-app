@@ -145,12 +145,10 @@ svg {
   width: 100%;
 }
 
-#chartdiv2 {
-  width: 100%;
-}
-
-div.col-xs-12 {
-  background-image: linear-gradient(180deg, #31708f, #28556b);
+.container-fluid {
+  background-color: #31708f;
+  padding-bottom: 30px;
+  bottom: 0;
 }
 
 // ===================
